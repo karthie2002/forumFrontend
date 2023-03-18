@@ -1,0 +1,15 @@
+$breakpoint-tablet: 945px;
+$breakpoint-lap: 1550px;
+
+@media (max-width: $breakpoint-tablet) {
+  .mainText {
+    width: 485px;
+  }
+}
+
+@media (min-width: $breakpoint-lap) {
+  .questions {
+    padding-left: 258px;
+    width: 1422px;
+  }
+}

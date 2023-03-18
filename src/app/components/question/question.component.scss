@@ -1,0 +1,6 @@
+$breakpoint-tablet: 1530px;
+@media (max-width: $breakpoint-tablet) {
+  .mainContainer {
+    width: 800px;
+  }
+}
