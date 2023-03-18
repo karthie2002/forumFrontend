@@ -1,10 +1,10 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 h-screen w-full">
-  <div>
+  
     <img
-      class="w-full h-full object-cover max-sm:rounded-br-3xl max-sm:rounded-bl-3xl"
+      class="w-full h-full object-cover max-sm:rounded-br-3xl max-sm:rounded-bl-3xl max-lg:h-96 "
       src="../../assets/images/parker.png"
     />
-  </div>
+
   <div *ngIf="isLogin">
     <app-login (authData)="loginData($event)"></app-login>
   </div>
