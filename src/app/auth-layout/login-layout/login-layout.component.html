@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 lg:grid-cols-2 h-screen w-full max-sm:gap-5">
+<div class="grid grid-cols-1 lg:grid-cols-2 h-screen w-full">
   <div>
     <img
       class="w-full h-full object-cover max-sm:rounded-br-3xl max-sm:rounded-bl-3xl max-lg:max-h-[500px]"
@@ -11,5 +11,4 @@
   <div *ngIf="!isLogin">
     <app-signup (authData)="loginData($event)"></app-signup>
   </div>
-
 </div>
