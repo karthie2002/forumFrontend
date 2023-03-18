@@ -5,6 +5,10 @@
       src="../../assets/images/parker.png"
     />
   </div>
-  <app-login></app-login>
-  <p>{{ isLogin }}</p>
+  <div *ngIf="isLogin">
+    <app-login (authData)="loginData($event)"></app-login>
+  </div>
+  <div *ngIf="!isLogin">
+    <app-signup (authData)="loginData($event)"></app-signup>
+  </div>
 </div>

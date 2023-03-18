@@ -6,14 +6,14 @@
       Sign Up
     </div>
     <div>
-      <label class="flex flex-col py-2">User Name</label>
+      <label class="flex flex-col py-2 font-semibold">User Name</label>
       <input
         type="text"
         class="w-full rounded-lg mt-2 p-2 bg-gray-300 focus:outline-blue-500 mb-8"
       />
     </div>
     <div>
-      <label class="flex flex-col py-2">Password</label>
+      <label class="flex flex-col py-2 font-semibold">Password</label>
       <input
         type="password"
         class="w-full rounded-lg mt-2 p-2 mb-4 bg-gray-300 focus:outline-blue-500"
@@ -26,6 +26,7 @@
         Sign Up
       </button>
       <button
+        (click)="btnClick()"
         class="w-1/2 mt-8 py-3 bg-[#F6F6F6] outline outline-2 outline-[#136afa] rounded-lg text-[#136afa] font-semibold text-1xl"
       >
         Sign In

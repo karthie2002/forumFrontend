@@ -7,4 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class LoginLayoutComponent {
   @Input() isLogin: boolean = true;
+  public loginData($event: boolean): void {
+    this.isLogin = $event;
+  }
 }

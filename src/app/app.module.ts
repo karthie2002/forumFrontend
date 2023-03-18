@@ -7,7 +7,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './auth-layout/login/login.component';
 import { QuestionComponent } from './components/question/question.component';
-
+import { LoginLayoutComponent } from './auth-layout/login-layout/login-layout.component';
+import { SignupComponent } from './auth-layout/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,8 @@ import { QuestionComponent } from './components/question/question.component';
     SidebarComponent,
     NavbarComponent,
     QuestionComponent,
+    LoginLayoutComponent,
+    SignupComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
