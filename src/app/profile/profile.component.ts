@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-
+  coverImage:string = "../../assets/images/coverImage1.jpg";
+  userProfile:string = "https://api.dicebear.com/5.x/lorelei/svg?seed=Snowball"
 }

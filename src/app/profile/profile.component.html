@@ -1,1 +1,18 @@
-<div>Should work</div>
+<div class="flex">
+  <app-navbar></app-navbar>
+  <div class="w-24 max-sm:w-0"></div>
+  <div class="flex-1">
+    <div
+      [ngStyle]="{ 'background-image': 'url(' + coverImage + ')' }"
+      class="h-40 w-full bg-cover bg-no-repeat bg-center"
+    ></div>
+    <img
+      [src]="userProfile"
+      alt="userProfile"
+      class="xl:w-42 xl:h-42 lg:w-40 lg:h-40 md:w-36 md:h-36 w-[90px] h-[90px] rounded-full absolute lg:top-[74px] lg:left-[120px] md:top-[90px] md:left-28 sm:left-28 top-28 left-6 mx-auto border-l-sky-50 border-3 bg-slate-100"
+    />
+    <p>Profile</p>
+  </div>
+  <div class="w-1/6 max-md:w-0"></div>
+  <app-sidebar></app-sidebar>
+</div>
