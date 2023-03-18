@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -12,6 +12,7 @@ import { SignupComponent } from './auth-layout/signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
+    routingComponents,
     LoginComponent,
     MainpageComponent,
     SidebarComponent,
