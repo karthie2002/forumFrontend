@@ -38,46 +38,7 @@
           rows="4"
           class="block p-2.5 w-full text-sm rounded-lg resize-none"
         ></textarea>
-        <div class="campaign-row-details">
-          <div class="campaign1-forms-heading">Geo</div>
-
-          <div
-            class="campaign1-txt"
-            style="display: flex; flex-direction: row"
-            *ngIf="!isClick"
-          >
-            <ng-container *ngFor="let item of checkboxesGeo; index as i">
-              <span *ngIf="item.isChecked">{{ item.label }}</span>
-              <span *ngIf="item.isChecked">, </span>
-            </ng-container>
-          </div>
-
-          <div class="campaign1-txt" *ngIf="isClick">
-            <div
-              style="
-                display: flex;
-                flex-direction: row;
-                gap: 14px;
-                margin: 5px;
-                flex-wrap: wrap;
-              "
-            >
-              <div
-                *ngFor="let item of checkboxesGeo"
-                class="campaign1-checkbox"
-              >
-                <input
-                  class="custom-width"
-                  type="checkbox"
-                  [(ngModel)]="item.isChecked"
-                  [name]="item.label"
-                />
-                <!-- <span class="custom-checkbox1"></span> -->
-                {{ item.label }}
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <button>Submit</button>
       </form>
       <div class="mt-10 grid grid-cols-3 items-center text-gray-500">
