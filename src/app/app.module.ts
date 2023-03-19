@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -11,6 +12,8 @@ import { LoginLayoutComponent } from './auth-layout/login-layout/login-layout.co
 import { SignupComponent } from './auth-layout/signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +28,15 @@ import { ProfileComponent } from './profile/profile.component';
     HomepageComponent,
     ProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [MatIconModule],
 })
 export class AppModule {}

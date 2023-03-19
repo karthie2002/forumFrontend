@@ -1,0 +1,31 @@
+.glass-effect {
+  background-color: rgba(241, 229, 229, 0.5); /* set the background color to a semi-transparent white */
+  backdrop-filter: blur(
+    5px
+  ); /* apply a 5 pixel blur effect to the background */
+    
+}
+
+.grid-col-forms {
+  grid-template-columns: 0.5fr 2fr;
+}
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"] {
+  color: transparent;
+}
+@media not all and (min-width: 640px) {
+  .grid-col-forms {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media not all and (min-width: 350px) {
+  .grid-col-forms {
+    grid-template-columns: 1fr;
+  }
+}
+input:disabled {
+  color: rgb(109, 105, 105, 0.7);
+}
