@@ -1,15 +1,21 @@
-$breakpoint-tablet: 945px;
+$breakpoint-tablet: 1280px;
 $breakpoint-lap: 1550px;
+$breakpoint-phone: 900px;
 
-@media (max-width: $breakpoint-tablet) {
-  .mainText {
-    width: 485px;
-  }
-}
+// @media (max-width: $breakpoint-tablet) {
+//   .mainText {
+//     width: 485px;
+//   }
+// }
 
-@media (min-width: $breakpoint-lap) {
-  .questions {
-    padding-left: 258px;
-    width: 1422px;
-  }
-}
+// @media (min-width: $breakpoint-lap) {
+//   .questions {
+//     width: 1422px;
+//   }
+// }
+
+// @media (max-width: $breakpoint-tablet) {
+//   .sidebar {
+//     width: 0px;
+//   }
+// }

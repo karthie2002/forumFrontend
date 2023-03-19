@@ -1,0 +1,7 @@
+$breakpoint-phone: 1280px;
+
+@media (max-width: $breakpoint-phone) {
+  .sidebar {
+    width: 0px;
+  }
+}
