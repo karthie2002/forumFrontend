@@ -4,6 +4,7 @@ $breakpoint-sm-tab: 1280px;
 $breakpoint-lg-phone: 1000px;
 $breakpoint-md-phone: 880px;
 $breakpoint-phone: 790px;
+$breakpoint-sm-phone: 640px;
 
 @media (max-width: $breakpoint-lap) {
   .mainContainer {
@@ -38,5 +39,11 @@ $breakpoint-phone: 790px;
 @media (max-width: $breakpoint-phone) {
   .mainContainer {
     width: 500px;
+  }
+}
+
+@media (max-width: $breakpoint-sm-phone) {
+  .mainContainer {
+    width: 400px;
   }
 }
