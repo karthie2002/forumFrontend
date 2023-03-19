@@ -1,5 +1,8 @@
-$breakpoint-tablet: 945px;
+$breakpoint-tablet: 1280px;
 $breakpoint-lap: 1550px;
+$breakpoint-lg-phone: 1000px;
+$breakpoint-phone: 640px;
+// $breakpoint-phone: 900px;
 
 @media (max-width: $breakpoint-tablet) {
   .mainText {
@@ -7,9 +10,14 @@ $breakpoint-lap: 1550px;
   }
 }
 
-@media (min-width: $breakpoint-lap) {
-  .questions {
-    padding-left: 258px;
-    width: 1422px;
+@media (max-width: $breakpoint-lg-phone) {
+  .sidebar {
+    width: 0px;
   }
 }
+
+// @media (max-width: $breakpoint-tablet) {
+//   .sidebar {
+//     width: 0px;
+//   }
+// }

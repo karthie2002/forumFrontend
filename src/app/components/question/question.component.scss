@@ -1,6 +1,49 @@
-$breakpoint-tablet: 1530px;
+$breakpoint-lap: 1600px;
+$breakpoint-tablet: 1400px;
+$breakpoint-sm-tab: 1280px;
+$breakpoint-lg-phone: 1000px;
+$breakpoint-md-phone: 880px;
+$breakpoint-phone: 790px;
+$breakpoint-sm-phone: 640px;
+
+@media (max-width: $breakpoint-lap) {
+  .mainContainer {
+    width: 900px;
+  }
+}
+
 @media (max-width: $breakpoint-tablet) {
   .mainContainer {
-    width: 800px;
+    width: 700px;
+  }
+}
+
+@media (max-width: $breakpoint-sm-tab) {
+  .mainContainer {
+    width: 500px;
+  }
+}
+
+@media (max-width: $breakpoint-lg-phone) {
+  .mainContainer {
+    width: 700px;
+  }
+}
+
+@media (max-width: $breakpoint-md-phone) {
+  .mainContainer {
+    width: 600px;
+  }
+}
+
+@media (max-width: $breakpoint-phone) {
+  .mainContainer {
+    width: 500px;
+  }
+}
+
+@media (max-width: $breakpoint-sm-phone) {
+  .mainContainer {
+    width: 400px;
   }
 }

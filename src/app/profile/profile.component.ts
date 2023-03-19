@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,22 @@ import { FormControl } from '@angular/forms';
 })
 export class ProfileComponent {
   coverImage: string = '../../assets/images/coverImage1.jpg';
-  userProfile: string =
-    'https://api.dicebear.com/5.x/lorelei/svg?seed=Snowball';
+  userProfile: string = 'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg'
   username: string = 'Akash';
   email: string = 'akash2003m@gmail.com';
   technology: string[] = ['C', 'C++'];
   recommendationControl = new FormControl();
+  getScreenHeight: number = 0;
+  getScreenWidth: number = 0;
+  isShown: boolean = true;
+  isVisible: boolean = true;
 
-  constructor() {}
+  constructor() {
+    this.onWindowResize();
+    if (!this.isShown) {
+      this.isVisible = false;
+    }
+  }
 
   insertImg(event: any) {
     const reader = new FileReader();
@@ -55,5 +63,20 @@ export class ProfileComponent {
     if (index > -1) {
       this.technology.splice(index, 1);
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.getScreenWidth = window.innerWidth;
+    this.getScreenHeight = window.innerHeight;
+    if (this.getScreenWidth <= 640) {
+      this.isShown = false;
+    } else {
+      this.isShown = true;
+    }
+  }
+
+  onHamburgerPress() {
+    this.isVisible = !this.isVisible;
   }
 }

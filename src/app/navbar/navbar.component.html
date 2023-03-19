@@ -1,13 +1,37 @@
-<div class="fixed w-24 border-[1px] max-sm:invisible h-full">
-  <div class="flex items-center justify-between flex-col h-full">
+<div
+  class="fixed w-24 border-[1px] h-full z-30 bg-white"
+  [@slideInOut]="isShown ? 'out' : 'in'"
+>
+  <div
+    class="flex items-center justify-between flex-col h-full"
+    *ngIf="isShown"
+  >
     <div class="flex items-center justify-center w-full mt-4">
-      <img
-        [src]="userProfile"
-        class="w-[72px] h-[72px] rounded-full object-cover"
-      />
+      <a routerLink="/profile">
+        <img
+          [src]="userProfile"
+          class="w-[72px] h-[72px] rounded-full object-cover"
+        />
+      </a>
     </div>
-    <div>
-        <mat-icon>home_outline</mat-icon>
+    <div class="flex flex-col gap-2">
+      <a routerLink="/home-page">
+        <span
+          aria-label="Outlined home icon"
+          class="material-icons-outlined"
+          style="font-size: 30px"
+          >home</span
+        >
+      </a>
+      <span class="material-icons" style="font-size: 30px"> info_outline </span>
+      <span class="material-icons-outlined" style="font-size: 30px">
+        send
+      </span>
+    </div>
+    <div class="mb-4">
+      <a routerLink="/login-layout">
+        <span class="material-icons" style="font-size: 30px"> logout </span>
+      </a>
     </div>
   </div>
 </div>
