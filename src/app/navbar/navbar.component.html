@@ -2,7 +2,10 @@
   class="fixed w-24 border-[1px] h-full z-30 bg-white"
   [@slideInOut]="isShown ? 'out' : 'in'"
 >
-  <div class="flex items-center justify-between flex-col h-full" *ngIf="isShown">
+  <div
+    class="flex items-center justify-between flex-col h-full"
+    *ngIf="isShown"
+  >
     <div class="flex items-center justify-center w-full mt-4">
       <a routerLink="/profile">
         <img
