@@ -1,0 +1,14 @@
+<div
+  class="fixed top-0 left-0 bg-black w-screen h-screen z-50"
+  (click)="btnClick()"
+  [@slideInOut]
+>
+  <div class="flex items-center justify-center w-full h-full">
+    <img
+      (click)="$event.stopPropagation()"
+      [src]="userProfile"
+      alt="userProfile"
+      class="w-[300px] h-[300px] rounded-xl"
+    />
+  </div>
+</div>

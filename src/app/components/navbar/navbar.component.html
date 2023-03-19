@@ -1,6 +1,7 @@
 <div
   class="fixed w-24 border-[1px] h-full z-30 bg-white"
   [@slideInOut]="isShown ? 'out' : 'in'"
+  [ngStyle]="!isShown ? { border: '0px' } : {}"
 >
   <div
     class="flex items-center justify-between flex-col h-full"
