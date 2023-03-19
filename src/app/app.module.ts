@@ -12,7 +12,6 @@ import { LoginLayoutComponent } from './auth-layout/login-layout/login-layout.co
 import { SignupComponent } from './auth-layout/signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatIconModule,
     ReactiveFormsModule,
   ],
