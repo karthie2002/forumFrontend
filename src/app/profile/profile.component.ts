@@ -8,8 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class ProfileComponent {
   coverImage: string = '../../assets/images/coverImage1.jpg';
-  userProfile: string =
-    'https://api.dicebear.com/5.x/lorelei/svg?seed=Snowball';
+  userProfile: string = 'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg'
   username: string = 'Akash';
   email: string = 'akash2003m@gmail.com';
   technology: string[] = ['C', 'C++'];
