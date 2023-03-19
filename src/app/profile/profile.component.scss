@@ -1,9 +1,13 @@
 .glass-effect {
-  background-color: rgba(241, 229, 229, 0.5); /* set the background color to a semi-transparent white */
+  background-color: rgba(
+    241,
+    229,
+    229,
+    0.5
+  ); /* set the background color to a semi-transparent white */
   backdrop-filter: blur(
     5px
   ); /* apply a 5 pixel blur effect to the background */
-    
 }
 
 .grid-col-forms {
@@ -21,9 +25,23 @@ input[type="file"] {
   }
 }
 
-@media not all and (min-width: 350px) {
+@media not all and (min-width: 460px) {
   .grid-col-forms {
     grid-template-columns: 1fr;
+    input,
+    textarea {
+      margin: 0;
+      width: 97%;
+      margin-right: 8px;
+    }
+    input[type="file"] {
+      width: 200px;
+      height: 200px;
+    }
+    .image-sizer {
+      width: 200px;
+      height: 200px;
+    }
   }
 }
 input:disabled {

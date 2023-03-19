@@ -1,5 +1,5 @@
 <section class="flex transition-all">
-  <!-- <app-navbar></app-navbar> -->
+  <app-navbar [userProfile]="userProfile"></app-navbar>
   <div class="w-24 max-sm:w-0"></div>
   <div class="flex-1">
     <div
@@ -64,17 +64,17 @@
         <div
           class="ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start"
         >
-          <div class="grid w-60 h-60 relative">
+          <div class="grid w-60 h-60 relative image-sizer">
             <input
               type="file"
               id="profileImg"
               accept="image/x-png,image/jpeg"
               title="Choose a file (Recommended)"
               (change)="insertImg($event)"
-              class="absolute w-60 h-60 cursor-pointer"
+              class="absolute w-60 h-60 cursor-pointer image-sizer"
             />
             <div
-              class="w-60 h-60 flex items-center justify-center rounded-lg"
+              class="w-60 h-60 flex items-center justify-center rounded-lg image-sizer"
               [ngStyle]="
                 userProfile.length === 0
                   ? { 'border-width': '2px' }
@@ -96,7 +96,7 @@
                     ? { 'border-width': '2px' }
                     : { 'border-width': '0px' }
                 "
-                class="w-[242px] h-[242px] rounded-lg"
+                class="w-[242px] h-[242px] rounded-lg image-sizer"
               />
             </div>
           </div>
