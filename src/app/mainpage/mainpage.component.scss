@@ -4,11 +4,11 @@ $breakpoint-lg-phone: 1000px;
 $breakpoint-phone: 640px;
 // $breakpoint-phone: 900px;
 
-@media (max-width: $breakpoint-tablet) {
-  .mainText {
-    width: 485px;
-  }
-}
+// @media (max-width: $breakpoint-tablet) {
+//   .mainText {
+//     width: 485px;
+//   }
+// }
 
 @media (max-width: $breakpoint-lg-phone) {
   .sidebar {
@@ -16,11 +16,11 @@ $breakpoint-phone: 640px;
   }
 }
 
-@media (max-width: $breakpoint-phone) {
-  .mainText {
-    width: 400px;
-  }
-}
+// @media (max-width: $breakpoint-phone) {
+//   .mainText {
+//     width: 400px;
+//   }
+// }
 
 // @media (max-width: $breakpoint-tablet) {
 //   .sidebar {

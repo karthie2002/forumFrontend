@@ -1,8 +1,13 @@
 <div
-  class="sidebar fixed flex flex-row w-64 h-full text-sky border-2 top-0 right-0"
+  class="sidebar fixed flex flex-row items-start w-64 h-full text-sky border-2 top-0 right-0 bg-white"
 >
-  <div>hello eruma</div>
-  <div>hello eruma</div>
-  <div>hello eruma</div>
-  <div>hello eruma</div>
+  <div class="flex gap-2 flex-wrap m-2">
+    <div
+      class="bg-[#344155] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer h-max"
+      *ngFor="let item of categories; let i = index"
+      [attr.data-index]="i"
+    >
+      <p>{{ item }}</p>
+    </div>
+  </div>
 </div>
