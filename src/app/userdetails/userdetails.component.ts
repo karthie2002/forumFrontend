@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NotifierService } from '../service/notifier.service';
+
+interface UserData {
+  name: String;
+  desc: String;
+  profileImg: String;
+  technology: String[];
+}
 
 @Component({
   selector: 'app-userdetails',
@@ -7,7 +15,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./userdetails.component.scss'],
 })
 export class UserdetailsComponent {
+  constructor(private notifierService: NotifierService) {}
+
+  userData: UserData[] = [];
   sizeFlag: number = 0;
+  fileFlag: number = 0;
   pattern: string = '../../assets/images/pattern.png';
   url: string = '../../assets/images/user.png';
   technology: string[] = ['C', 'C++'];
@@ -26,24 +38,39 @@ export class UserdetailsComponent {
         this.recommendationControl.reset();
       }
     }
+    console.log(this.technology);
   }
   uploadFile(event: any) {
-    console.log(event.target.files[0]);
+    console.log(event.target.files[0].type);
+    var type = event.target.files[0].type;
     var size = event.target.files[0].size / 1024;
-    console.log('Size: ' + event.target.files[0].size / 1024);
+    // console.log('Size: ' + event.target.files[0].size / 1024);
     if (event.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event: any) => {
         if (size <= 2000) {
-          this.url = event.target.result;
-          this.sizeFlag = 0;
+          if (type == 'image/jpeg' || type == 'image/png') {
+            this.fileFlag = 0;
+            this.sizeFlag = 0;
+            this.url = event.target.result;
+          } else {
+            this.fileFlag = 1;
+            this.sizeFlag = 1;
+            this.notifierService.showNotification(
+              'Image type should be JPEG/PNG'
+            );
+          }
         } else {
           this.sizeFlag = 1;
           this.url = '../../assets/images/user.png';
+          this.notifierService.showNotification('Image size cannot exceed 2MB');
         }
         console.log(this.sizeFlag);
       };
     }
+  }
+  onSubmit() {
+    // this.userData = "hi";
   }
 }

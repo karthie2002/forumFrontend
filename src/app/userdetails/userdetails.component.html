@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center min-h-screen py-2">
   <div
-    class="flex flex-col items-center justify-center w-full flex-1 px-20 text-center"
+    class="flex flex-col items-center justify-center w-full flex-1 px-20 max-lg:px-0 text-center"
   >
     <div
       class="bg-[#F6F6F6] shadow-2xl max-lg:shadow-none max-lg:bg-white flex max-w-6xl rounded-2xl"
@@ -15,7 +15,7 @@
               <img
                 [src]="url"
                 [ngStyle]="{ border: sizeFlag ? 'solid red' : 'solid #136afa' }"
-                class="imgProfile rounded-full border-4 border-[#136afa] border-solid p-4"
+                class="object-cover imgProfile rounded-full border-4 border-[#136afa] border-solid p-4"
               />
             </label>
 
@@ -58,10 +58,10 @@
               />
               <div
                 (click)="addRecommendation($event)"
-                class="flex items-center glass-effect p-2 rounded-lg"
+                class="flex items-center p-2 rounded-lg"
               >
                 <button
-                  class="font-semibold text-xl bg-[#F6F6F6] outline outline-2 outline-[#136afa] rounded-lg px-3 py-1"
+                  class="font-semibold text-xl bg-[#F6F6F6] outline outline-2 outline-[#136afa] rounded-full px-3 py-1"
                 >
                   >
                 </button>
@@ -79,6 +79,7 @@
             </div>
           </div>
           <button
+          
             class="mt-8 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
           >
             Submit
@@ -94,4 +95,3 @@
     </div>
   </div>
 </div>
-<!-- 635px - 1050px error -->
