@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageZoomComponent } from './components/image-zoom/image-zoom.component';
+import { HamburgerComponent } from './components/hamburger/hamburger.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ImageZoomComponent } from './components/image-zoom/image-zoom.component
     HomepageComponent,
     ProfileComponent,
     ImageZoomComponent,
+    HamburgerComponent,
   ],
   imports: [
     BrowserModule,

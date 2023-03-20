@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -14,18 +14,10 @@ export class ProfileComponent {
   email: string = 'akash2003m@gmail.com';
   technology: string[] = ['C', 'C++'];
   recommendationControl = new FormControl();
-  getScreenHeight: number = 0;
-  getScreenWidth: number = 0;
-  isShown: boolean = true;
-  isVisible: boolean = true;
+ 
   isZoom: boolean = false;
 
-  constructor() {
-    this.onWindowResize();
-    if (!this.isShown) {
-      this.isVisible = false;
-    }
-  }
+  constructor() {}
 
   insertImg(event: any) {
     const reader = new FileReader();
@@ -67,20 +59,6 @@ export class ProfileComponent {
     }
   }
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize() {
-    this.getScreenWidth = window.innerWidth;
-    this.getScreenHeight = window.innerHeight;
-    if (this.getScreenWidth <= 640) {
-      this.isShown = false;
-    } else {
-      this.isShown = true;
-    }
-  }
-
-  onHamburgerPress() {
-    this.isVisible = !this.isVisible;
-  }
   zoomImage() {
     this.isZoom = !this.isZoom;
   }
