@@ -16,6 +16,12 @@ $breakpoint-phone: 640px;
   }
 }
 
+@media (max-width: $breakpoint-phone) {
+  .mainText {
+    width: 400px;
+  }
+}
+
 // @media (max-width: $breakpoint-tablet) {
 //   .sidebar {
 //     width: 0px;
