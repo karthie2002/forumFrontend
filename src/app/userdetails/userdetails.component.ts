@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./userdetails.component.scss'],
 })
 export class UserdetailsComponent {
+  sizeFlag: number = 0;
   pattern: string = '../../assets/images/pattern.png';
   url: string = '../../assets/images/user.png';
   technology: string[] = ['C', 'C++'];
@@ -27,12 +28,21 @@ export class UserdetailsComponent {
     }
   }
   uploadFile(event: any) {
+    console.log(event.target.files[0]);
+    var size = event.target.files[0].size / 1024;
+    console.log('Size: ' + event.target.files[0].size / 1024);
     if (event.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event: any) => {
-        this.url = event.target.result;
-        console.log(this.url);
+        if (size <= 2000) {
+          this.url = event.target.result;
+          this.sizeFlag = 0;
+        } else {
+          this.sizeFlag = 1;
+          this.url = '../../assets/images/user.png';
+        }
+        console.log(this.sizeFlag);
       };
     }
   }
