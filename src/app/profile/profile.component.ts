@@ -8,7 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class ProfileComponent {
   coverImage: string = '../../assets/images/coverImage1.jpg';
-  userProfile: string = 'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg'
+  userProfile: string =
+    'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
   username: string = 'Akash';
   email: string = 'akash2003m@gmail.com';
   technology: string[] = ['C', 'C++'];
@@ -17,6 +18,7 @@ export class ProfileComponent {
   getScreenWidth: number = 0;
   isShown: boolean = true;
   isVisible: boolean = true;
+  isZoom: boolean = false;
 
   constructor() {
     this.onWindowResize();
@@ -78,5 +80,8 @@ export class ProfileComponent {
 
   onHamburgerPress() {
     this.isVisible = !this.isVisible;
+  }
+  zoomImage() {
+    this.isZoom = !this.isZoom;
   }
 }
