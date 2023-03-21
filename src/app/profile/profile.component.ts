@@ -46,7 +46,7 @@ export class ProfileComponent {
   addRecommendation(event: Event) {
     event.preventDefault();
     if (event != null) {
-      const value: string = this.recommendationControl.value;
+      const value: string = this.recommendationControl.value || "";
       if (value.length > 0) {
         this.technology = [...this.technology, value];
         this.recommendationControl.reset();

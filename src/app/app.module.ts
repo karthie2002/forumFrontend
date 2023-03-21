@@ -16,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageZoomComponent } from './components/image-zoom/image-zoom.component';
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
-
+import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
+import { NotifierComponent } from './components/notifier/notifier.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { HamburgerComponent } from './components/hamburger/hamburger.component';
     ProfileComponent,
     ImageZoomComponent,
     HamburgerComponent,
+    NotifierComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { HamburgerComponent } from './components/hamburger/hamburger.component';
     MatIconModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
