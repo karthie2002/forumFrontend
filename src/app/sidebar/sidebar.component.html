@@ -1,13 +1,21 @@
 <div
-  class="sidebar fixed flex flex-row items-start w-64 h-full text-sky border-2 top-0 right-0 bg-white"
+  class="sidebar fixed flex flex-col items-start w-64 h-full text-sky border-2 top-0 right-0 bg-white"
 >
-  <div class="flex gap-2 flex-wrap m-2">
-    <div
-      class="bg-[#344155] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer h-max"
-      *ngFor="let item of categories; let i = index"
-      [attr.data-index]="i"
-    >
-      <p>{{ item }}</p>
+  <div class="px-3">
+    <input
+      type="text"
+      class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-blue-500 mb-4 max-lg:mb-4 text-xl"
+    />
+  </div>
+  <div class="flex flex-row items-start text-sky">
+    <div class="flex gap-2 flex-wrap m-2">
+      <div
+        class="bg-[#344155] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer h-max"
+        *ngFor="let item of categories; let i = index"
+        [attr.data-index]="i"
+      >
+        <p>{{ item }}</p>
+      </div>
     </div>
   </div>
 </div>
