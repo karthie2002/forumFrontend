@@ -2,6 +2,8 @@
   class="flex h-full justify-center items-center max-sm:items-start max-lg:items-start"
 >
   <form
+    [formGroup]="submitFormSignUp"
+    (ngSubmit)="onSubmit($event)"
     onsubmit="event.preventDefault()"
     class="lg:shadow-2xl max-w-[500px] w-full mx-auto bg-[#F6F6F6] p-8 px-8 rounded-lg max-lg:bg-transparent max-sm:bg-transparent max-lg:px-4 max-lg:p-3"
   >
@@ -11,6 +13,7 @@
     <div>
       <label class="flex flex-col py-2 font-semibold">User Name</label>
       <input
+        formControlName="n"
         type="text"
         class="w-full rounded-lg mt-2 p-2 bg-gray-300 focus:outline-blue-500 mb-8"
       />
@@ -18,6 +21,7 @@
     <div>
       <label class="flex flex-col py-2 font-semibold">Email</label>
       <input
+        formControlName="e"
         type="text"
         class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-gray-300 focus:outline-blue-500 mb-8 max-lg:mb-4 text-xl"
       />
@@ -25,13 +29,14 @@
     <div>
       <label class="flex flex-col py-2 font-semibold">Password</label>
       <input
+        formControlName="p"
         type="password"
         class="w-full rounded-lg mt-2 p-2 mb-4 bg-gray-300 focus:outline-blue-500"
       />
     </div>
     <div class="flex gap-4">
       <button
-        (click)="onButtonClick()"
+        (click)="onSubmit($event)"
         class="w-1/2 mt-8 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
       >
         Sign Up

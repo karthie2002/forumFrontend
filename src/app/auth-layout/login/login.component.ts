@@ -60,7 +60,7 @@ export class LoginComponent {
           this.userCred.email = decodedToken.email;
           console.log(this.userCred);
           localStorage.setItem('userData', JSON.stringify(this.userCred));
-          this.router.navigate(['/user-details']);
+          this.router.navigate(['/home-page']);
         }
       });
   }
