@@ -10,7 +10,7 @@
     <div class="flex items-center justify-center w-full mt-4">
       <a routerLink="/profile">
         <img
-          [src]="userProfile"
+          [src]="userProfile.length == 0 ? '../../assets/images/user.png' : userProfile"
           class="w-[72px] h-[72px] rounded-full object-cover"
         />
       </a>
