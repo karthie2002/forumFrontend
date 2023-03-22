@@ -6,6 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -31,7 +32,13 @@ import { Component, Input } from '@angular/core';
   ],
 })
 export class NavbarComponent {
+  constructor(private router: Router) {}
   @Input() userProfile: string =
     'https://api.dicebear.com/5.x/lorelei/svg?seed=Snowball';
   @Input() isShown: boolean = true;
+
+  onClick() {
+    this.router.navigate(['/login-layout']);
+    localStorage.removeItem('userData');
+  }
 }

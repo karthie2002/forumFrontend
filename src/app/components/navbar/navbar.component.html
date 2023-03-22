@@ -10,7 +10,11 @@
     <div class="flex items-center justify-center w-full mt-4">
       <a routerLink="/profile">
         <img
-          [src]="userProfile.length == 0 ? '../../assets/images/user.png' : userProfile"
+          [src]="
+            userProfile.length == 0
+              ? '../../assets/images/user.png'
+              : userProfile
+          "
           class="w-[72px] h-[72px] rounded-full object-cover"
         />
       </a>
@@ -58,7 +62,7 @@
       </svg>
     </div>
     <div class="mb-4">
-      <a routerLink="/login-layout">
+      <button (click)="onClick()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="32"
@@ -70,7 +74,7 @@
             d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2a9.985 9.985 0 0 1 8 4h-2.71a8 8 0 1 0 .001 12h2.71A9.985 9.985 0 0 1 12 22zm7-6v-3h-8v-2h8V8l5 4l-5 4z"
           />
         </svg>
-      </a>
+      </button>
     </div>
   </div>
 </div>
