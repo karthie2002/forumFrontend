@@ -14,9 +14,6 @@ export class HamburgerComponent {
     'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
   constructor() {
     this.onWindowResize();
-    if (this.isShown) {
-      this.isVisible = false;
-    }
   }
   onHamburgerPress() {
     this.isVisible = !this.isVisible;
@@ -26,8 +23,10 @@ export class HamburgerComponent {
   onWindowResize() {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
+    //console.log(this.getScreenWidth, this.getScreenHeight);
     if (this.getScreenWidth <= 640) {
       this.isShown = false;
+      this.isVisible = false;
     } else {
       this.isShown = true;
     }
