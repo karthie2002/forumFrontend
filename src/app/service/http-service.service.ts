@@ -4,7 +4,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 const httpOptions = {
@@ -12,37 +12,57 @@ const httpOptions = {
     'Content-Type': 'application/json',
   }),
 };
+
 export interface LogIn {
-  username: string;
+  name: string;
   password: string;
+}
+export interface Responses {
+  access_token: string;
+}
+
+export interface UserDescription {
+  name: string;
+  desc: string;
+  profileImg: string;
+  technology: string[];
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpServiceService {
-  constructor(private http: HttpClient, private err: HttpErrorResponse) {}
-  loginUrl: string = 'https://forum-backend-azure.vercel.app/auth/';
-  loginUserDetails(login: LogIn): Observable<LogIn> {
+  constructor(private http: HttpClient) {}
+
+  loginUrl: string = 'https://forum-backend-azure.vercel.app/auth/loginUser';
+  userDescUrl: string =
+    'https://forum-backend-azure.vercel.app/user/updateDetails';
+
+  loginUserDetails(login: LogIn): Observable<Responses> {
     return this.http
-      .post<LogIn>(this.loginUrl, login, httpOptions)
-      .pipe(catchError(this.handleError));
+      .post<Responses>(this.loginUrl, login, httpOptions)
+      .pipe(retry(0), catchError(this.handleError));
   }
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `,
-        error.error
-      );
+  userDescDetails(userDesc: UserDescription): Observable<UserDescription> {
+    let userDtl: any = localStorage.getItem('userData');
+    if (userDtl) {
+      userDtl = JSON.parse(userDtl);
     }
-    // Return an observable with a user-facing error message.
-    return throwError(
-      () => new Error('Something bad happened; please try again later.')
-    );
+    // console.log(userDtl.access_token);
+    const descHeader: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${userDtl.access_token}`,
+    });
+    return this.http
+      .post<UserDescription>(this.userDescUrl, userDesc, {
+        headers: descHeader,
+      })
+      .pipe(retry(0), catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error.error.message);
+
+    return of(error.error.message);
   }
 }

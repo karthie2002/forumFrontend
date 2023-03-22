@@ -3,7 +3,11 @@ import { FormControl } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { Observable, catchError } from 'rxjs';
+
+import {
+  HttpServiceService,
+  UserDescription,
+} from '../service/http-service.service';
 
 @Component({
   selector: 'app-userdetails',
@@ -14,7 +18,8 @@ export class UserdetailsComponent {
   constructor(
     private notifierService: NotifierService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private httpService: HttpServiceService
   ) {}
 
   submitForm = this.formBuilder.group({
@@ -41,7 +46,7 @@ export class UserdetailsComponent {
         this.recommendationControl.reset();
       }
     }
-    console.log(this.technology);
+    // console.log(this.technology);
   }
   uploadFile(event: any) {
     console.log(event.target.files[0].type);
@@ -66,10 +71,10 @@ export class UserdetailsComponent {
           }
         } else {
           this.sizeFlag = 1;
-          this.url = '../../assets/images/user.png';
+
           this.notifierService.showNotification('Image size cannot exceed 2MB');
         }
-        console.log(this.sizeFlag);
+        // console.log(this.sizeFlag);
       };
     }
   }
@@ -83,7 +88,35 @@ export class UserdetailsComponent {
     let val: any = this.submitForm.value;
     val.profileI = this.url;
     val.tech = this.technology;
+    let userDta: any = localStorage.getItem('userData');
+    if (userDta) {
+      userDta = JSON.parse(userDta);
+    }
+    // console.log(userDta.acces_token);
+    const submitDetails: UserDescription = {
+      name: userDta.username,
+      desc: val.desc,
+      profileImg: val.profileI,
+      technology: val.tech,
+    };
+    if (submitDetails.name == null) {
+      submitDetails.name = '';
+    }
+    if (submitDetails.desc == null) {
+      submitDetails.desc = '';
+    }
+    if (submitDetails.profileImg == null) {
+      submitDetails.profileImg = '';
+    }
+    if (submitDetails.technology == null) {
+      submitDetails.technology = [];
+    }
 
-    console.log('Your order has been submitted', val);
+    const det = this.httpService
+      .userDescDetails(submitDetails)
+      .subscribe((response) => {
+        console.log(response);
+        if (response) this.router.navigate(['/home-page']);
+      });
   }
 }
