@@ -39,7 +39,15 @@
         (click)="onSubmit($event)"
         class="w-1/2 mt-8 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
       >
-        Sign Up
+      <div class="flex flex-row items-center justify-center gap-2">
+        <div>Sign Up</div>
+        <mat-spinner 
+        class="items-center"
+          *ngIf="res_flag == 1"
+          diameter="20"
+          color="warn"
+        ></mat-spinner>
+        </div>
       </button>
       <button
         (click)="btnClick()"

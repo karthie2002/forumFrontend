@@ -19,6 +19,7 @@ import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
 import { NotifierComponent } from './components/notifier/notifier.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -21,6 +21,7 @@ export interface UserCred {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  res_flag: number = 0;
   userCred: UserCred = { username: '', access_token: '', email: '' };
   constructor(
     private router: Router,
@@ -38,6 +39,7 @@ export class LoginComponent {
   }
 
   onSubmit(event: Event) {
+    this.res_flag = 1;
     event.preventDefault();
     const smt = this.submitFormLogin.value;
     const name: string = smt.n as string;
@@ -49,6 +51,7 @@ export class LoginComponent {
       .subscribe((response) => {
         console.log(response);
         if (response.access_token == undefined) {
+          this.res_flag = 0;
           this.notifierService.showNotification(response as any);
         } else {
           jwtToken = response.access_token as string;
@@ -60,6 +63,7 @@ export class LoginComponent {
           this.userCred.email = decodedToken.email;
           console.log(this.userCred);
           localStorage.setItem('userData', JSON.stringify(this.userCred));
+          this.res_flag = 0;
           this.router.navigate(['/home-page']);
         }
       });
