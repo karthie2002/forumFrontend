@@ -18,10 +18,10 @@ const urlBase: string = 'https://forum-backend-azure.vercel.app/user/';
 export class ProfileService {
   constructor(private http: HttpClient) {}
 
-  getAllDataForDescription(
-    name: string,
-    token: string
-  ): Observable<GetAllDetails[]> {
+  getAllDataForDescription(): Observable<GetAllDetails[]> {
+    const storage = localStorage.getItem('userData');
+    const token = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).access_token;
+    const name = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).username;
     const url = `${urlBase}getUserDetails`;
     const descHeader: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -38,13 +38,10 @@ export class ProfileService {
       .pipe(retry(0), catchError(this.handleError));
   }
 
-  saveAllDataofDesc(
-    name: string,
-    desc: string,
-    profileImg: string,
-    technology: string[],
-    token: string
-  ) {
+  saveAllDataofDesc(desc: string, profileImg: string, technology: string[]) {
+    const storage = localStorage.getItem('userData');
+    const token = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).access_token;
+    const name = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).username;
     const url = `${urlBase}updateDetails`;
     const descHeader: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',

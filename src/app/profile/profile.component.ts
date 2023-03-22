@@ -39,10 +39,7 @@ export class ProfileComponent implements OnInit {
   });
   ngOnInit() {
     this.profileService
-      .getAllDataForDescription(
-        'Akash',
-        `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYXNoMjAwM21AZ21haWwuY29tIiwic3ViIjoiQWthc2giLCJpYXQiOjE2Nzk0NjgyOTksImV4cCI6MTY3OTUyMjI5OX0.Pia2ZXXTkSXZT1h80U486dQvozcyuK3z5DC9MouU5es`
-      )
+      .getAllDataForDescription()
       .subscribe((value: GetAllDetails[]) => {
         this.profileForm.setValue({
           name: value[0].name,
@@ -102,18 +99,11 @@ export class ProfileComponent implements OnInit {
 
   onSubmitUserDetails(event: Event) {
     event.preventDefault();
-    const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYXNoMjAwM21AZ21haWwuY29tIiwic3ViIjoiQWthc2giLCJpYXQiOjE2Nzk0NjgyOTksImV4cCI6MTY3OTUyMjI5OX0.Pia2ZXXTkSXZT1h80U486dQvozcyuK3z5DC9MouU5es`;
     const values: FormValue = JSON.parse(
       JSON.stringify(this.profileForm.value)
     );
     this.profileService
-      .saveAllDataofDesc(
-        'Akash',
-        values.desc,
-        this.userProfile,
-        this.technology,
-        token
-      )
+      .saveAllDataofDesc(values.desc, this.userProfile, this.technology)
       .subscribe((value: GetDetails[]) => {
         // this.profileForm.get('desc')?.setValue(value[0].desc);
         this.userProfile = value[0].profileImg;
