@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
-
-interface UserData {
-  name: String;
-  desc: String;
-  profileImg: String;
-  technology: String[];
-}
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { Observable, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-userdetails',
@@ -15,14 +11,21 @@ interface UserData {
   styleUrls: ['./userdetails.component.scss'],
 })
 export class UserdetailsComponent {
-  constructor(private notifierService: NotifierService) {}
+  constructor(
+    private notifierService: NotifierService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  userData: UserData[] = [];
+  submitForm = this.formBuilder.group({
+    desc: '',
+  });
+
   sizeFlag: number = 0;
   fileFlag: number = 0;
   pattern: string = '../../assets/images/pattern.png';
   url: string = '../../assets/images/user.png';
-  technology: string[] = ['C', 'C++'];
+  technology: string[] = [];
   recommendationControl = new FormControl();
   clearRecommendation(index: number) {
     if (index > -1) {
@@ -70,7 +73,17 @@ export class UserdetailsComponent {
       };
     }
   }
-  onSubmit() {
-    // this.userData = "hi";
+
+  onButtonClick(): void {
+    this.router.navigate(['/home-page']);
+  }
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    let val: any = this.submitForm.value;
+    val.profileI = this.url;
+    val.tech = this.technology;
+
+    console.log('Your order has been submitted', val);
   }
 }

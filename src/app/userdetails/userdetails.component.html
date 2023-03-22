@@ -9,7 +9,11 @@
         <div class="text-[#136afa] font-bold text-4xl mb-4">
           Tell us more about you!
         </div>
-        <form class="flex flex-col" onsubmit="event.preventDefault()">
+        <form
+          class="flex flex-col"
+          [formGroup]="submitForm"
+          (ngSubmit)="onSubmit($event)"
+        >
           <div class="flex flex-col justify-center items-center">
             <label for="profileImg">
               <img
@@ -38,6 +42,7 @@
             >Description</label
           >
           <textarea
+            formControlName="desc"
             id="message"
             rows="4"
             class="block p-2.5 w-full text-sm rounded-lg resize-none outline outline-2 outline-[#136afa] focus:outline-[#136afa] focus:outline-2"
@@ -79,11 +84,11 @@
             </div>
           </div>
           <button
-          
-            class="mt-8 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
+            class="mt-8 mb-4 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
           >
             Submit
           </button>
+          <button (click)="onButtonClick()">SKIP</button>
         </form>
       </div>
       <div class="w-1/2 p-5 lg:block hidden">

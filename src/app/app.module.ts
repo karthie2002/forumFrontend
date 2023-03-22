@@ -18,6 +18,7 @@ import { ImageZoomComponent } from './components/image-zoom/image-zoom.component
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
 import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
 import { NotifierComponent } from './components/notifier/notifier.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { NotifierComponent } from './components/notifier/notifier.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
