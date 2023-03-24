@@ -37,7 +37,9 @@
     <div
       class="questions flex flex-1 flex-col justify-center items-center gap-y-10 py-10"
     >
-      <app-question></app-question>
+      <div class="cursor-pointer" (click)="onClick()">
+        <app-question></app-question>
+      </div>
       <app-question></app-question>
       <app-question></app-question>
       <app-question></app-question>
