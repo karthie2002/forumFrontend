@@ -16,6 +16,7 @@ export class MainpageComponent implements OnInit {
   ) {}
 
   questionList: GetAllProblems[] = [];
+  isShown: boolean = false;
   ngOnInit(): void {
     this.mainPageService
       .GetAllQuestionsForMainPage()
@@ -27,5 +28,12 @@ export class MainpageComponent implements OnInit {
   onClick() {
     console.log('clciked');
     this.router.navigate(['/question-info']);
+  }
+
+  showQuesInput(event: any) {
+    this.isShown = true;
+  }
+  submit(event: any) {
+    this.isShown = false;
   }
 }

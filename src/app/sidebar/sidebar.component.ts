@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
   categories: string[] = ['Health', 'Technology', 'Movie', 'Sports', 'Food'];
   constructor() {}
+
+  
 }
