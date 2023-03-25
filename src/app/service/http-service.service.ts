@@ -4,8 +4,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, retry, debounceTime } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,12 +26,27 @@ export interface SignUp {
 export interface Responses {
   access_token: string;
 }
+export interface InputSearch {
+  text: string;
+}
 
 export interface UserDescription {
   name: string;
   desc: string;
   profileImg: string;
   technology: string[];
+}
+
+export interface TextSearchResponse {
+  score: number;
+  questiondesc: string | null;
+  question: string | null;
+  userdesc: string | null;
+  label: string;
+  technology: string[] | null;
+  username: string | null;
+  userImage: string | null;
+  questionImage: string | null;
 }
 
 @Injectable({
@@ -42,6 +57,7 @@ export class HttpServiceService {
 
   loginUrl: string = 'https://forum-backend-azure.vercel.app/auth/loginUser';
   signUpUrl: string = 'https://forum-backend-azure.vercel.app/auth/createUser';
+  textSearchUrl: string = 'https://forum-backend-azure.vercel.app/fulltext';
 
   userDescUrl: string =
     'https://forum-backend-azure.vercel.app/user/updateDetails';
@@ -73,10 +89,14 @@ export class HttpServiceService {
       })
       .pipe(retry(0), catchError(this.handleError));
   }
+  textSearch(ipSearch: InputSearch): Observable<TextSearchResponse[]> {
+    return this.http
+      .post<TextSearchResponse[]>(this.textSearchUrl, ipSearch, httpOptions)
+      .pipe(retry(0), catchError(this.handleError));
+  }
 
   private handleError(error: HttpErrorResponse) {
     console.log(error.error.message);
-
     return of(error.error.message);
   }
 }

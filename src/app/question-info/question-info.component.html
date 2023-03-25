@@ -2,23 +2,9 @@
   <app-hamburger [userProfile]="userProfile"></app-hamburger>
   <div class="w-24 h-full max-sm:w-0"></div>
   <div class="flex flex-1 flex-col">
-    <div
-      class="m-4 max-sm:mt-20 flex flex-row justify-start items-center bg-[#f8f8ff] border-2 border-black rounded-md"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="currentColor"
-          d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4Zm-6 4q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Z"
-        />
-      </svg>
-      <div class="">Post your Question</div>
+    <div class="w-full">
+      <app-text-search></app-text-search>
     </div>
-
     <div
       class="backg flex flex-col border-solid rounded-2xl drop-shadow-lg m-4 p-6 bg-[url('https://static.vecteezy.com/system/resources/previews/002/099/717/original/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg')] object-cover bg-no-repeat"
     >
