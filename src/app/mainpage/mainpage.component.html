@@ -37,12 +37,32 @@
     <div
       class="questions flex flex-1 flex-col justify-center items-center gap-y-10 py-10"
     >
-      <div class="cursor-pointer" (click)="onClick()">
+      <div class="cursor-pointer w-full" (click)="onClick()">
         <app-question></app-question>
       </div>
-      <app-question></app-question>
-      <app-question></app-question>
-      <app-question></app-question>
+      <div class="w-full cursor-pointer" *ngFor="let item of questionList">
+        <app-question
+          [date]="item.problem.createdAt"
+          [category]="item.category"
+          [description]="item.problem.description"
+          [username]="
+            item.username != null
+              ? item.username.length == 0
+                ? 'Anonymous'
+                : item.username
+              : 'Anonymous'
+          "
+          [question]="item.problem.question"
+          [problemImg]="item.problem.problemImg"
+          [userProfile]="
+            item.userProfileImg != null
+              ? item.userProfileImg.length == 0
+                ? '../../assets/images/user.png'
+                : item.userProfileImg
+              : '../../assets/images/user.png'
+          "
+        ></app-question>
+      </div>
     </div>
     <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>
   </div>

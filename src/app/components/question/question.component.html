@@ -4,31 +4,42 @@
   <div
     class="flex flex-row justify-start items-center gap-x-4 max-sm:flex-col max-sm:items-center"
   >
-    <div class="flex flex-row justify-start items-center gap-x-4 max-sm:gap-x-1 flex-wrap max-sm:justify-center">
+    <div
+      class="flex flex-row justify-start items-center gap-x-4 max-sm:gap-x-1 flex-wrap max-sm:justify-center"
+    >
       <div class="flex flex-row justify-start items-center gap-x-4">
         <a routerLink="/profile"
           ><img
-            [src]="userProfile"
+            [src]="
+              userProfile.trim().length == 0
+                ? '../../assets/images/user.png'
+                : userProfile
+            "
             alt="user-profile"
             class="w-[60px] h-[60px] rounded-full object-cover bg-[#7f7f7f]"
         /></a>
         <div>{{ username }}</div>
       </div>
-      <div class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0"></div>
-      <div>{{ category }}</div>
+      <ng-container *ngIf="category != null"
+        ><ng-container *ngIf="category.trim().length != 0">
+          <div class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0"></div>
+          <div>{{ category }}</div>
+        </ng-container>
+      </ng-container>
     </div>
     <div class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0"></div>
-    <div>{{ date }}</div>
+    <div>{{ getDate(date) }}</div>
   </div>
   <div class="flex flex-row gap-x-5 justify-start items-center max-sm:flex-col">
     <img
+      *ngIf="problemImg.trim().length != 0"
       [src]="problemImg"
       alt="problem-image"
       class="w-40 h-32 bg-[#7f7f7f] rounded-lg object-cover max-sm:w-52 max-sm:h-40 max-sm:mb-5"
     />
 
     <div class="flex flex-col gap-y-3 max-lg:w-5/6 max-sm:w-full">
-      <div class="text-lg max-sm:text-center">{{ question }}</div>
+      <div class="text-lg max-sm:text-center font-bold">{{ question }}</div>
       <div class="text-base max-sm:text-center">
         {{ description }}
       </div>
