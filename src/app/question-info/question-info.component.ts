@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import {
   GetAllProblemsAndReplies,
   MainPageService,
@@ -19,27 +19,6 @@ export class QuestionInfoComponent implements OnInit {
   userProfile: string =
     'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
   problemDetails: GetAllProblemsAndReplies[] = [];
-  //  = {
-  //   problem: {
-  //     createdAt: 0,
-  //     question: '',
-  //     problemImg: '',
-  //     description: '',
-  //     upvote: 0,
-  //   },
-  //   replyMain: {
-  //     reply: {
-  //       createdAt: 0,
-  //       replyId: '',
-  //       reactions: [],
-  //       content: '',
-  //     },
-  //     user: {
-  //       name: '',
-  //       profileImg: '',
-  //     },
-  //   },
-  // };
   getDate(num: number) {
     return new Intl.DateTimeFormat('en-US', {
       month: 'short',
@@ -57,7 +36,4 @@ export class QuestionInfoComponent implements OnInit {
         });
     });
   }
-  // ngOnDestroy() {
-  //   this.router.navigate(['/home-page']);
-  // }
 }

@@ -21,6 +21,11 @@ export interface GetAllProblemsAndReplies {
       profileImg: string;
     };
   }[];
+  asker: {
+    name: string;
+    profileImg: string;
+  };
+  category: string;
 }
 export interface GetAllProblems {
   problem: {
@@ -33,17 +38,6 @@ export interface GetAllProblems {
   userProfileImg: string | null;
   username: string | null;
   category: string | null;
-  //   [{
-  //     problem: {
-  //       createdAt: 1679329565585,
-  //       question: 'dummy',
-  //       problemImg: '',
-  //       description: 'fool',
-  //       upvote: 0,
-  //     },
-  //     userProfileImg: '',
-  //     username: 'Unknown',
-  //   }];
 }
 
 const urlBase: string = 'https://forum-backend-azure.vercel.app/problem/';

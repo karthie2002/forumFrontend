@@ -18,10 +18,10 @@
           >
             <div class="flex flex-row items-center gap-4">
               <img
-                *ngIf="problemDetails[0].replyMain[0].user.profileImg != null"
+                *ngIf="problemDetails[0].asker.profileImg != null"
                 [src]="
-                  problemDetails[0].replyMain[0].user.profileImg.length != 0
-                    ? problemDetails[0].replyMain[0].user.profileImg
+                  problemDetails[0].asker.profileImg.length != 0
+                    ? problemDetails[0].asker.profileImg
                     : '../../assets/images/user.png'
                 "
                 class="h-20 w-20 rounded-full object-cover"
@@ -31,7 +31,7 @@
               >
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl font-bold">
-                  {{ problemDetails[0].replyMain[0].user.name }}
+                  {{ problemDetails[0].asker.name }}
                 </div>
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl max-sm:text-sm">
@@ -41,24 +41,24 @@
             </div>
             <div
               class="max-sm:text-sm text-2xl border-2 font-semibold p-2 rounded-2xl bg-[#136afa] text-[#f6f6f6]"
-              *ngIf="problemDetails[0].replyMain[0].user != null"
+              *ngIf="problemDetails[0].category != null"
             >
-              <!-- #{{ problemDetails.category }} -->
+              #{{ problemDetails[0].category }}
             </div>
           </div>
         </div>
 
         <div class="font-bold text-2xl mt-5 mb-4 max-sm:text-[18px]">
-          <!-- {{ problemDetails.problem.question }} -->
+          {{ problemDetails[0].problem.question }}
         </div>
         <div class="text-xl mb-5">
-          <!-- {{ problemDetails.problem.description }} -->
+          {{ problemDetails[0].problem.description }}
         </div>
 
         <div
           class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] w-24 font-bold p-2 rounded-2xl"
         >
-          <!-- {{ problemDetails.problem.upvote }} Upvote -->
+          {{ problemDetails[0].problem.upvote }} Upvote
         </div>
       </div>
     </div>
