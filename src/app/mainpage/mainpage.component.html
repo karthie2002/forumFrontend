@@ -34,27 +34,36 @@
         </div>
         <div *ngIf="isShown">
           <div class="flex flex-col bg-[#123d6a] my-8 p-4 rounded-lg">
-            <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
-              >Question</label
+            <form
+              class="mb-6"
+              (ngSubmit)="submit($event)"
+              [formGroup]="questionForm"
             >
-            <input
-              type="text"
-              class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
-            />
-            <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
-              >Description</label
-            >
-            <input
-              type="text"
-              class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
-            />
-            <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
-              >Image</label
-            >
-            <input
-              type="text"
-              class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
-            />
+              <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
+                >Question</label
+              >
+              <input
+                type="text"
+                formControlName="question"
+                class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+              />
+              <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
+                >Description</label
+              >
+              <input
+                type="text"
+                formControlName="description"
+                class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+              />
+              <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
+                >Image</label
+              >
+              <input
+                type="text"
+                formControlName="quesImg"
+                class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+              />
+            </form>
             <div class="flex flex-row items-center justify-center">
               <button
                 (click)="submit($event)"
@@ -80,7 +89,11 @@
       <!-- <div class="cursor-pointer w-full" (click)="onClick()">
         <app-question></app-question>
       </div> -->
-      <div class="w-full cursor-pointer" *ngFor="let item of questionList;let i = index" (click)="onClick(item,i)">
+      <div
+        class="w-full cursor-pointer"
+        *ngFor="let item of questionList; let i = index"
+        (click)="onClick(item, i)"
+      >
         <app-question
           [date]="item.problem.createdAt"
           [category]="item.category"
