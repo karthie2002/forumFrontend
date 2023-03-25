@@ -13,7 +13,23 @@
   >
     <div *ngFor="let item of res">
       <div *ngIf="item.label == 'User'">
-        <div><app-usercard></app-usercard></div>
+        <div>
+          <app-usercard
+            [url]="item.userImage"
+            [username]="item.username"
+            [userdesc]="item.userdesc"
+            [tech]="item.technology"
+          ></app-usercard>
+        </div>
+      </div>
+      <div *ngIf="item.label == 'Problem'">
+        <div>
+          <app-problemcard
+            [url]="item.questionImage"
+            [question]="item.question"
+            [questiondesc]="item.questiondesc"
+          ></app-problemcard>
+        </div>
       </div>
     </div>
   </div>
