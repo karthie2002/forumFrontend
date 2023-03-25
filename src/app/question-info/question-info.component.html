@@ -7,6 +7,7 @@
     </div>
     <div
       class="backg flex flex-col border-solid rounded-2xl drop-shadow-lg m-4 p-6 bg-[url('https://static.vecteezy.com/system/resources/previews/002/099/717/original/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg')] object-cover bg-no-repeat"
+      *ngIf="problemDetails.length != 0"
     >
       <div
         class="border-2 border-[#136afa] bg-white backdrop-filter backdrop-blur-md bg-opacity-50 rounded-2xl p-5"
@@ -17,10 +18,10 @@
           >
             <div class="flex flex-row items-center gap-4">
               <img
-                *ngIf="problemDetails.userProfileImg != null"
+                *ngIf="problemDetails[0].replyMain[0].user.profileImg != null"
                 [src]="
-                  problemDetails.userProfileImg.length != 0
-                    ? problemDetails.userProfileImg
+                  problemDetails[0].replyMain[0].user.profileImg.length != 0
+                    ? problemDetails[0].replyMain[0].user.profileImg
                     : '../../assets/images/user.png'
                 "
                 class="h-20 w-20 rounded-full object-cover"
@@ -30,34 +31,34 @@
               >
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl font-bold">
-                  {{ problemDetails.username }}
+                  {{ problemDetails[0].replyMain[0].user.name }}
                 </div>
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl max-sm:text-sm">
-                  {{ getDate(problemDetails.problem.createdAt) }}
+                  {{ getDate(problemDetails[0].problem.createdAt) }}
                 </div>
               </div>
             </div>
             <div
               class="max-sm:text-sm text-2xl border-2 font-semibold p-2 rounded-2xl bg-[#136afa] text-[#f6f6f6]"
-              *ngIf="problemDetails.category != null"
+              *ngIf="problemDetails[0].replyMain[0].user != null"
             >
-              #{{ problemDetails.category }}
+              <!-- #{{ problemDetails.category }} -->
             </div>
           </div>
         </div>
 
         <div class="font-bold text-2xl mt-5 mb-4 max-sm:text-[18px]">
-          {{ problemDetails.problem.question }}
+          <!-- {{ problemDetails.problem.question }} -->
         </div>
         <div class="text-xl mb-5">
-          {{ problemDetails.problem.description }}
+          <!-- {{ problemDetails.problem.description }} -->
         </div>
 
         <div
           class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] w-24 font-bold p-2 rounded-2xl"
         >
-          {{ problemDetails.problem.upvote }} Upvote
+          <!-- {{ problemDetails.problem.upvote }} Upvote -->
         </div>
       </div>
     </div>
