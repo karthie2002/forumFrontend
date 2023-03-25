@@ -20,6 +20,7 @@ export class TextSearchComponent {
     console.log(smt);
     const ipText: InputSearch = { text: smt };
     console.log(ipText);
+
     if (ipText.text.length != 0) {
       this.httpService
         .textSearch(ipText)
@@ -28,6 +29,8 @@ export class TextSearchComponent {
           this.res = value;
           console.log(this.res);
         });
+    } else {
+      this.res = [];
     }
   }
 }
