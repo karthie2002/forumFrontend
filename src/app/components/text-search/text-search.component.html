@@ -1,0 +1,16 @@
+<div class="w-auto m-4">
+  <input
+    (input)="getInputValue($event)"
+    class="w-full max-sm:mt-20 flex p-3 bg-[#f8f8ff] border-2 border-black rounded-md"
+    type="text"
+    placeholder="Type your question"
+  />
+</div>
+<div class="relative z-10">
+  <div
+    class="absolute bg-[#3da9fc] backdrop-filter backdrop-blur-md bg-opacity-100 right-0 left-0 ml-3 mr-3 p-3 rounded-md"
+  >
+    <div *ngFor="let item of res">{{ item.label }}</div>
+    <div>hiefefefef</div>
+  </div>
+</div>

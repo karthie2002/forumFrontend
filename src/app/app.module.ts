@@ -20,6 +20,7 @@ import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
 import { NotifierComponent } from './components/notifier/notifier.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionInfoComponent } from './question-info/question-info.component';
+import { TextSearchComponent } from './components/text-search/text-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { QuestionInfoComponent } from './question-info/question-info.component';
     HamburgerComponent,
     NotifierComponent,
     QuestionInfoComponent,
+    TextSearchComponent,
   ],
   imports: [
     BrowserModule,
