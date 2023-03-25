@@ -21,6 +21,7 @@ import { NotifierComponent } from './components/notifier/notifier.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionInfoComponent } from './question-info/question-info.component';
 import { TextSearchComponent } from './components/text-search/text-search.component';
+import { UsercardComponent } from './components/usercard/usercard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { TextSearchComponent } from './components/text-search/text-search.compon
     NotifierComponent,
     QuestionInfoComponent,
     TextSearchComponent,
+    UsercardComponent,
   ],
   imports: [
     BrowserModule,
