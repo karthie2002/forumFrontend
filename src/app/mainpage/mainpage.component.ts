@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {
   GetAllProblems,
   MainPageService,
@@ -12,7 +12,8 @@ import {
 export class MainpageComponent implements OnInit {
   constructor(
     private router: Router,
-    private mainPageService: MainPageService
+    private mainPageService: MainPageService,
+    private route: ActivatedRoute
   ) {}
 
   questionList: GetAllProblems[] = [];
@@ -24,8 +25,11 @@ export class MainpageComponent implements OnInit {
         console.log(value);
       });
   }
-  onClick() {
+  onClick(item: GetAllProblems, id: number) {
     console.log('clciked');
-    this.router.navigate(['/question-info']);
+    this.router.navigate(['/question-info', id], {
+      queryParams: { json: JSON.stringify(item) },
+      queryParamsHandling: null,
+    });
   }
 }

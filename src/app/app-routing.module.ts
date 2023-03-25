@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home-page', component: HomepageComponent },
   { path: 'user-details', component: UserdetailsComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'question-info', component: QuestionInfoComponent },
+  { path: 'question-info/:id', component: QuestionInfoComponent },
   { path: '', redirectTo: '/login-layout', pathMatch: 'full' },
 ];
 
