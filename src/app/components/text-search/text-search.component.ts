@@ -17,11 +17,11 @@ export class TextSearchComponent {
   getInputValue(event: Event) {
     let input: any = event.target;
     let smt = input.value;
-    console.log(smt);
+
     const ipText: InputSearch = { text: smt };
     console.log(ipText);
 
-    if (ipText.text.length != 0) {
+    if (ipText.text.length != 0 && ipText.text != '') {
       this.httpService
         .textSearch(ipText)
         .pipe(debounceTime(1000))
