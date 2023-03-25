@@ -17,6 +17,7 @@ export class MainpageComponent implements OnInit {
   ) {}
 
   questionList: GetAllProblems[] = [];
+  isShown: boolean = false;
   ngOnInit(): void {
     this.mainPageService
       .GetAllQuestionsForMainPage()
@@ -31,5 +32,12 @@ export class MainpageComponent implements OnInit {
       queryParams: { json: JSON.stringify(item) },
       queryParamsHandling: null,
     });
+  }
+
+  showQuesInput(event: any) {
+    this.isShown = true;
+  }
+  submit(event: any) {
+    this.isShown = false;
   }
 }
