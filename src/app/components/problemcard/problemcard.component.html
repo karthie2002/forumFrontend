@@ -1,0 +1,12 @@
+<div
+  class="border-2 border-sky-600 rounded-xl p-3 bg-white backdrop-filter backdrop-blur-md bg-opacity-50 m-3"
+>
+  <div class="flex flex-row items-center gap-3 w-full">
+    <img *ngIf="url != ''" [src]="url" class="h-16 w-20" />
+
+    <div class="flex flex-col gap-2">
+      <div class="lineBreak font-extrabold">{{ question }}</div>
+      <div class="lineBreak font-semibold">{{ questiondesc }}</div>
+    </div>
+  </div>
+</div>

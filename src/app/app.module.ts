@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { QuestionInfoComponent } from './question-info/question-info.component';
 import { TextSearchComponent } from './components/text-search/text-search.component';
 import { UsercardComponent } from './components/usercard/usercard.component';
+import { ProblemcardComponent } from './components/problemcard/problemcard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { UsercardComponent } from './components/usercard/usercard.component';
     QuestionInfoComponent,
     TextSearchComponent,
     UsercardComponent,
+    ProblemcardComponent,
   ],
   imports: [
     BrowserModule,

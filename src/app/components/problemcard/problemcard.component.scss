@@ -1,0 +1,8 @@
+.lineBreak {
+    --max-lines: 1;
+    --line-h: 1.4;
+    max-height: calc(var(--max-lines) * 1em * var(--line-h));
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  

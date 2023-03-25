@@ -22,6 +22,15 @@
           ></app-usercard>
         </div>
       </div>
+      <div *ngIf="item.label == 'Problem'">
+        <div>
+          <app-problemcard
+            [url]="item.questionImage"
+            [question]="item.question"
+            [questiondesc]="item.questiondesc"
+          ></app-problemcard>
+        </div>
+      </div>
     </div>
   </div>
 </div>
