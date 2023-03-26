@@ -18,10 +18,11 @@
           >
             <div class="flex flex-row items-center gap-4">
               <img
-                *ngIf="problemDetails[0].asker.profileImg != null"
                 [src]="
-                  problemDetails[0].asker.profileImg.length != 0
-                    ? problemDetails[0].asker.profileImg
+                  problemDetails[0].asker.profileImg != null
+                    ? problemDetails[0].asker.profileImg.length != 0
+                      ? problemDetails[0].asker.profileImg
+                      : '../../assets/images/user.png'
                     : '../../assets/images/user.png'
                 "
                 class="h-20 w-20 rounded-full object-cover"
@@ -31,7 +32,11 @@
               >
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl font-bold">
-                  {{ problemDetails[0].asker.name }}
+                  {{
+                    problemDetails[0].asker.name != null
+                      ? problemDetails[0].asker.name
+                      : "Anonymous"
+                  }}
                 </div>
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl max-sm:text-sm">
