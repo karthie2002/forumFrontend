@@ -1,13 +1,15 @@
 <div
-  class="flex h-full justify-center items-center max-sm:items-start max-lg:items-start"
+  class="flex h-full justify-center items-center max-sm:items-start max-lg:items-start bg-[#f08382]"
 >
   <form
     [formGroup]="submitFormLogin"
     (ngSubmit)="onSubmit($event)"
     onsubmit="event.preventDefault()"
-    class="lg:shadow-2xl max-w-[500px] w-full mx-auto bg-[#F6F6F6] p-8 px-8 rounded-lg max-lg:bg-transparent max-sm:bg-transparent max-lg:px-4 max-lg:p-3"
+    class="lg:shadow-2xl max-w-[500px] w-full mx-auto bg-[#f6f6f6] bg-opacity-70 backdrop-blur-md drop-shadow-lg p-8 px-8 rounded-lg max-lg:bg-transparent max-sm:bg-transparent max-lg:px-4 max-lg:p-3"
   >
-    <div class="text-6xl font-bold mb-8 text-[#136afa] max-lg:text-4xl">
+    <div
+      class="text-6xl font-bold mb-8 text-[#f08382] max-lg:text-4xl max-lg:text-[#f6f6f6]"
+    >
       Sign In
     </div>
     <div>
@@ -15,7 +17,7 @@
       <input
         formControlName="n"
         type="text"
-        class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-gray-300 focus:outline-blue-500 mb-8 max-lg:mb-4 text-xl"
+        class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-gray-200 focus:outline-[#f08382] mb-8 max-lg:mb-4 text-xl"
       />
     </div>
 
@@ -24,13 +26,13 @@
       <input
         formControlName="p"
         type="password"
-        class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-gray-300 focus:outline-blue-500 mb-8 max-lg:mb-4 text-xl"
+        class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-gray-200 focus:outline-[#f08382] mb-8 max-lg:mb-4 text-xl"
       />
     </div>
     <div class="flex gap-4">
       <button
         (click)="onSubmit($event)"
-        class="w-1/2 max-lg:py-1 mt-8 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
+        class="w-1/2 max-lg:py-1 mt-8 py-3 bg-[#f08382] rounded-lg text-[#F6F6F6] font-semibold text-1xl max-lg:bg-[#f6f6f6] max-lg:text-[#f08382]"
       >
         <div class="flex flex-row items-center justify-center gap-2">
           <div *ngIf="res_flag == 0">Sign In</div>
@@ -140,7 +142,7 @@
 
       <button
         (click)="btnClick()"
-        class="w-1/2 mt-8 py-3 bg-[#F6F6F6] outline outline-2 outline-[#136afa] rounded-lg text-[#136afa] font-semibold text-1xl"
+        class="w-1/2 mt-8 py-3 bg-[#F6F6F6] outline outline-2 outline-[#f08382] rounded-lg text-[#f08382] font-semibold text-1xl"
       >
         Sign Up
       </button>

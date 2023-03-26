@@ -1,12 +1,14 @@
-<div class="flex flex-col items-center justify-center min-h-screen py-2">
+<div
+  class="flex flex-col items-center justify-center min-h-screen py-2 bg-[#f5cac3]"
+>
   <div
     class="flex flex-col items-center justify-center w-full flex-1 px-20 max-lg:px-0 text-center"
   >
     <div
-      class="bg-[#F6F6F6] shadow-2xl max-lg:shadow-none max-lg:bg-white flex max-w-6xl rounded-2xl"
+      class="bg-white bg-opacity-50 backdrop-blur-md drop-shadow-lg shadow-2xl max-lg:shadow-none max-lg:bg-white flex max-w-6xl rounded-2xl"
     >
       <div class="w-1/2 p-10 max-lg:w-full max-lg:p-5">
-        <div class="text-[#136afa] font-bold text-4xl mb-4">
+        <div class="text-[#355070] font-bold text-4xl mb-4">
           Tell us more about you!
         </div>
         <form
@@ -18,8 +20,8 @@
             <label for="profileImg">
               <img
                 [src]="url"
-                [ngStyle]="{ border: sizeFlag ? 'solid red' : 'solid #136afa' }"
-                class="object-cover imgProfile rounded-full border-4 border-[#136afa] border-solid p-4"
+                [ngStyle]="{ border: sizeFlag ? 'solid red' : 'solid #355070' }"
+                class="object-cover imgProfile rounded-full border-4 border-[#355070] border-solid p-4"
               />
             </label>
 
@@ -31,26 +33,26 @@
             />
             <label
               for="profileImg"
-              class="w-1/2 max-lg:py-1 mt-8 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl text-center cursor-pointer"
+              class="w-1/2 max-lg:py-1 mt-8 py-3 bg-[#355070] rounded-lg text-[#F6F6F6] font-semibold text-1xl text-center cursor-pointer"
             >
               Upload Image
             </label>
           </div>
           <hr class="border-gray-500 mt-5" />
           <label
-            class="text-[#136afa] text-xl font-semibold mt-5 text-left mb-2"
+            class="text-[#355070] text-xl font-semibold mt-5 text-left mb-2"
             >Description</label
           >
           <textarea
             formControlName="desc"
             id="message"
             rows="4"
-            class="block p-2.5 w-full text-sm rounded-lg resize-none outline outline-2 outline-[#136afa] focus:outline-[#136afa] focus:outline-2"
+            class="block p-2.5 w-full text-sm rounded-lg resize-none outline outline-2 outline-[#355070] focus:outline-[#355070] focus:outline-2"
           ></textarea>
           <hr class="border-gray-500 mt-5" />
           <label
             for="technologies"
-            class="text-left text-[#136afa] mt-5 mb-2 text-xl font-semibold"
+            class="text-left text-[#355070] mt-5 mb-2 text-xl font-semibold"
             >Technologies</label
           >
           <div class="flex flex-col">
@@ -59,14 +61,14 @@
                 type="text"
                 (keydown.enter)="addRecommendation($event)"
                 [formControl]="recommendationControl"
-                class="flex-1 border-2 outline outline-2 outline-[#136afa] focus:outline-[#136afa] focus:outline-2 rounded-lg py-2 px-2"
+                class="flex-1 border-2 outline outline-2 outline-[#355070] focus:outline-[#355070] focus:outline-2 rounded-lg py-2 px-2"
               />
               <div
                 (click)="addRecommendation($event)"
                 class="flex items-center p-2 rounded-lg"
               >
                 <button
-                  class="font-semibold text-xl bg-[#F6F6F6] outline outline-2 outline-[#136afa] rounded-full px-3 py-1"
+                  class="font-semibold text-xl bg-[#F6F6F6] outline outline-2 outline-[#355070] rounded-full px-3 py-1"
                 >
                   >
                 </button>
@@ -74,7 +76,7 @@
             </div>
             <div class="flex gap-2 flex-wrap m-2">
               <div
-                class="bg-[#136afa] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer"
+                class="bg-[#355070] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer"
                 *ngFor="let item of technology; let i = index"
                 [attr.data-index]="i"
                 (click)="clearRecommendation(i)"
@@ -85,7 +87,7 @@
           </div>
           <button
             (click)="onSubmit($event)"
-            class="mt-8 mb-4 py-3 bg-[#136afa] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
+            class="mt-8 mb-4 py-3 bg-[#355070] rounded-lg text-[#F6F6F6] font-semibold text-1xl"
           >
             Submit
           </button>
@@ -94,7 +96,7 @@
       </div>
       <div class="w-1/2 p-5 lg:block hidden">
         <img
-          src="../../assets/images/pattern.png"
+          src="../../assets/images/BG4.png"
           class="object-cover h-full rounded-2xl lg:block hidden"
         />
       </div>
