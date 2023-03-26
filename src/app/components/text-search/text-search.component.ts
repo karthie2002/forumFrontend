@@ -19,7 +19,7 @@ export class TextSearchComponent {
     let input: any = event.target;
     let smt = input.value;
 
-    const ipText: InputSearch = { text: smt };
+    const ipText: InputSearch = { text: smt.trim() };
     console.log(ipText);
 
     if (ipText.text.length != 0 && ipText.text != '') {

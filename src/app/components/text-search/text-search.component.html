@@ -12,7 +12,7 @@
     class="absolute bg-[#f25f4c] text-[#f6f6f6] font-semibold backdrop-filter backdrop-blur-md bg-opacity-100 right-0 left-0 ml-3 mr-3 p-4 rounded-md"
   >
     <div *ngFor="let item of res">
-      <div *ngIf="item.label == 'User'">
+      <div *ngIf="item.label[0] == 'User'">
         <div>
           <app-usercard
             [url]="item.userImage"
@@ -22,7 +22,7 @@
           ></app-usercard>
         </div>
       </div>
-      <div *ngIf="item.label == 'Problem'">
+      <div *ngIf="item.label[0] == 'Problem'">
         <div>
           <app-problemcard
             [url]="item.questionImage"

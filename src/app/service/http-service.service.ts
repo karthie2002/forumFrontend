@@ -42,7 +42,7 @@ export interface TextSearchResponse {
   questiondesc: string | null;
   question: string | null;
   userdesc: string | null;
-  label: string;
+  label: string[];
   technology: string[] | null;
   username: string | null;
   userImage: string | null;
