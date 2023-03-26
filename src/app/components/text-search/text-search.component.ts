@@ -13,6 +13,7 @@ import {
 })
 export class TextSearchComponent {
   res: TextSearchResponse[] = [];
+  isLoading: number = 1;
   constructor(private httpService: HttpServiceService) {}
   getInputValue(event: Event) {
     let input: any = event.target;
@@ -22,11 +23,13 @@ export class TextSearchComponent {
     console.log(ipText);
 
     if (ipText.text.length != 0 && ipText.text != '') {
+      this.isLoading = 0;
       this.httpService
         .textSearch(ipText)
         .pipe(debounceTime(1000))
         .subscribe((value: TextSearchResponse[]) => {
           this.res = value;
+          this.isLoading = 1;
           console.log(this.res);
         });
     } else {
