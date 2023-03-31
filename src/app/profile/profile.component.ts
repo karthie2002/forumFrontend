@@ -68,11 +68,15 @@ export class ProfileComponent implements OnInit {
   }
   onCancel(event: Event) {
     event.preventDefault();
+    this.getData();
+    this.disableAllFields();
+  }
+  disableAllFields() {
     this.isEdit = false;
     this.profileForm.controls.desc.disable();
     this.recommendationControl.disable();
+    this.recommendationControl.reset();
   }
-
   insertImg(event: any) {
     const reader = new FileReader();
     if (event.target.files && event.target.files.length) {
@@ -110,7 +114,8 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
-  clearRecommendation(index: number) {
+  clearRecommendation(index: number, event: Event) {
+    event.preventDefault();
     if (index > -1) {
       this.technology.splice(index, 1);
     }
@@ -122,6 +127,7 @@ export class ProfileComponent implements OnInit {
 
   onSubmitUserDetails(event: Event) {
     event.preventDefault();
+    this.disableAllFields();
     const values: FormValue = JSON.parse(
       JSON.stringify(this.profileForm.value)
     );

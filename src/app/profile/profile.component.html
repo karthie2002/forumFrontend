@@ -151,14 +151,16 @@
             </div>
           </div>
           <div class="flex gap-2 flex-wrap m-2">
-            <div
+            <button
               class="bg-[#344155] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer"
               *ngFor="let item of technology; let i = index"
               [attr.data-index]="i"
-              (click)="clearRecommendation(i)"
+              (click)="clearRecommendation(i, $event)"
+              [disabled]="!isEdit"
+              (submit)="$event.preventDefault()"
             >
               <p>{{ item }}</p>
-            </div>
+            </button>
           </div>
         </div>
       </div>
