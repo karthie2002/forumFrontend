@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, retry, catchError, throwError } from 'rxjs';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
+import { Observable, retry, catchError, throwError, of } from 'rxjs';
 export interface GetDetails {
   name: string;
   profileImg: string;
@@ -20,8 +24,14 @@ export class ProfileService {
 
   getAllDataForDescription(): Observable<GetAllDetails[]> {
     const storage = localStorage.getItem('userData');
-    const token = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).access_token;
-    const name = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).username;
+    const token =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).access_token;
+    const name =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).username;
     const url = `${urlBase}getUserDetails`;
     const descHeader: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -40,8 +50,14 @@ export class ProfileService {
 
   saveAllDataofDesc(desc: string, profileImg: string, technology: string[]) {
     const storage = localStorage.getItem('userData');
-    const token = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).access_token;
-    const name = storage == null ? '' : JSON.parse(localStorage.getItem('userData')!).username;
+    const token =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).access_token;
+    const name =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).username;
     const url = `${urlBase}updateDetails`;
     const descHeader: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -66,9 +82,9 @@ export class ProfileService {
       )
       .pipe(retry(0), catchError(this.handleError));
   }
-  private handleError(error: Error) {
+  private handleError(error: HttpErrorResponse) {
     console.log(error);
 
-    return throwError(() => error);
+    return of(error.error.message);
   }
 }

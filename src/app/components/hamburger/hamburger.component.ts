@@ -10,8 +10,7 @@ export class HamburgerComponent {
   getScreenHeight: number = 0;
   getScreenWidth: number = 0;
   isVisible: boolean = true;
-  @Input() userProfile: string =
-    'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
+  
   constructor() {
     this.onWindowResize();
   }

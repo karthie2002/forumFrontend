@@ -5,8 +5,12 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  GetUserProfileInterface,
+  NavbarService,
+} from 'src/app/service/navbar/navnar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -31,11 +35,19 @@ import { Router } from '@angular/router';
     ]),
   ],
 })
-export class NavbarComponent {
-  constructor(private router: Router) {}
-  @Input() userProfile: string =
-    'https://api.dicebear.com/5.x/lorelei/svg?seed=Snowball';
+export class NavbarComponent implements OnInit {
+  constructor(private router: Router, private navbarService: NavbarService) {}
+  @Input() userProfile: string = '../../../assets/images/user.png';
   @Input() isShown: boolean = true;
+  ngOnInit(): void {
+    this.navbarService
+      .getUserProfile()
+      .subscribe((value: GetUserProfileInterface | 'Unauthorized') => {
+        if (value != 'Unauthorized') {
+          this.userProfile = value.profileImg;
+        }
+      });
+  }
 
   onClick() {
     this.router.navigate(['/login-layout']);

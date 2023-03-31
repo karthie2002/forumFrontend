@@ -62,3 +62,23 @@ body {
 body {
   margin: 0;
 }
+
+@media (pointer: fine) {
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+    height: 12px;
+    width: 12px;
+  }
+  :hover::-webkit-scrollbar-thumb {
+    color: #344155;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: content-box currentColor;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: #80868b;
+    min-height: 48px;
+    min-width: 48px;
+  }
+}

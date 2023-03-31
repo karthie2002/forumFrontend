@@ -6,6 +6,7 @@ import {
   GetDetails,
   ProfileService,
 } from '../service/profile/profile.service';
+import { Router } from '@angular/router';
 export interface FormValue {
   name: string;
   email: string;
@@ -24,32 +25,54 @@ export class ProfileComponent implements OnInit {
   // username: string = 'Akash';
   // email: string = 'akash2003m@gmail.com';
   technology: string[] = ['C', 'C++'];
-  recommendationControl = new FormControl();
-
+  recommendationControl = new FormControl({ value: '', disabled: true });
+  isEdit: boolean = false;
   isZoom: boolean = false;
 
   constructor(
     private notifierService: NotifierService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private router: Router
   ) {}
   profileForm = new FormGroup({
     name: new FormControl({ value: '', disabled: true }),
     email: new FormControl({ value: '', disabled: true }, Validators.email),
-    desc: new FormControl(''),
+    desc: new FormControl({ value: '', disabled: true }),
   });
   ngOnInit() {
+    this.getData();
+  }
+  getData() {
     this.profileService
       .getAllDataForDescription()
-      .subscribe((value: GetAllDetails[]) => {
-        this.profileForm.setValue({
-          name: value[0].name,
-          email: value[0].email,
-          desc: value[0].desc,
-        });
-        this.userProfile = value[0].profileImg;
-        this.technology = value[0].technology;
+      .subscribe((value: GetAllDetails[] | 'Unauthorized') => {
+        if (value !== 'Unauthorized') {
+          this.profileForm.setValue({
+            name: value[0].name,
+            email: value[0].email,
+            desc: value[0].desc,
+          });
+          this.userProfile = value[0].profileImg;
+          this.technology = value[0].technology;
+        } else {
+          localStorage.removeItem('userData');
+          this.router.navigate(['/login-layout']);
+        }
       });
   }
+  onEdit(event: Event) {
+    event.preventDefault();
+    this.isEdit = true;
+    this.profileForm.controls.desc.enable();
+    this.recommendationControl.enable();
+  }
+  onCancel(event: Event) {
+    event.preventDefault();
+    this.isEdit = false;
+    this.profileForm.controls.desc.disable();
+    this.recommendationControl.disable();
+  }
+
   insertImg(event: any) {
     const reader = new FileReader();
     if (event.target.files && event.target.files.length) {

@@ -44,6 +44,7 @@ input[type="file"] {
     }
   }
 }
-input:disabled {
+input:disabled,
+textarea:disabled {
   color: rgb(109, 105, 105, 0.7);
 }
