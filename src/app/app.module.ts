@@ -23,6 +23,7 @@ import { QuestionInfoComponent } from './question-info/question-info.component';
 import { TextSearchComponent } from './components/text-search/text-search.component';
 import { UsercardComponent } from './components/usercard/usercard.component';
 import { ProblemcardComponent } from './components/problemcard/problemcard.component';
+import { ReplyContentComponent } from './components/reply-content/reply-content.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { ProblemcardComponent } from './components/problemcard/problemcard.compo
     TextSearchComponent,
     UsercardComponent,
     ProblemcardComponent,
+    ReplyContentComponent,
   ],
   imports: [
     BrowserModule,

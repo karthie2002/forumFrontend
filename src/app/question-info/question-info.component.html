@@ -5,8 +5,9 @@
     <div class="w-full">
       <app-text-search></app-text-search>
     </div>
+
     <div
-      class="backg flex flex-col border-solid rounded-2xl drop-shadow-lg m-4 p-6 bg-[url('https://static.vecteezy.com/system/resources/previews/002/099/717/original/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg')] object-cover bg-no-repeat"
+      class="flex flex-col border-solid rounded-2xl drop-shadow-lg m-4 p-6 bg-[url('https://static.vecteezy.com/system/resources/previews/002/099/717/original/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg')] object-cover bg-no-repeat"
       *ngIf="problemDetails.length != 0"
     >
       <div
@@ -67,8 +68,9 @@
         </div>
       </div>
     </div>
-
-    <div>Reply from dbs</div>
+    <div class="p-5">
+      <app-reply-content [problemDetails]="problemDetails"></app-reply-content>
+    </div>
   </div>
   <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>
   <app-sidebar></app-sidebar>
