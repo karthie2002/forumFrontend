@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, retry, catchError, throwError } from 'rxjs';
+import { Question } from 'src/app/mainpage/mainpage.component';
 export interface GetAllProblemsAndReplies {
   problem: {
     createdAt: number;
@@ -39,7 +40,13 @@ export interface GetAllProblems {
   username: string | null;
   category: string | null;
 }
-
+export interface PostAQuestionInterface {
+  username: string;
+  question: string;
+  description: string;
+  quesImg: string;
+  upvote: number;
+}
 const urlBase: string = 'https://forum-backend-azure.vercel.app/problem/';
 @Injectable({
   providedIn: 'root',
@@ -67,5 +74,28 @@ export class MainPageService {
     console.log(error);
 
     return throwError(() => error);
+  }
+
+  PostAQuestion(question: string, description: string, quesImg: string) {
+    const url = `${urlBase}createNewProblem`;
+    // const name =
+    //   storage == null
+    //     ? ''
+    //     : JSON.parse(localStorage.getItem('userData')!).username;
+
+    console.log({
+      question: question,
+      description: description,
+      quesImg: quesImg,
+    });
+    return this.http
+      .post<PostAQuestionInterface>(url, {
+        username: quesImg,
+        question: question,
+        description: description,
+        quesImg: quesImg,
+        upvote: 0,
+      })
+      .pipe(retry(0), catchError(this.handleError));
   }
 }

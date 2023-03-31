@@ -33,40 +33,69 @@
           </div>
         </div>
         <div *ngIf="isShown">
-          <div class="flex flex-col bg-[#123d6a] my-8 p-4 rounded-lg">
+          <div class="bg-[#123d6a] my-8 p-4 rounded-lg">
             <form
-              class="mb-6"
-              (ngSubmit)="submit($event)"
+              class="grid grid-cols-3 grid-rows-4 mb-6"
+              (ngSubmit)="submitForm($event)"
               [formGroup]="questionForm"
             >
-              <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
-                >Question</label
-              >
+              <label class="py-2 font-semibold text-[#edc8b8]">Question</label>
               <input
                 type="text"
                 formControlName="question"
-                class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
               />
-              <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
+
+              <label class="py-2 font-semibold text-[#edc8b8]"
                 >Description</label
               >
               <input
                 type="text"
                 formControlName="description"
-                class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
               />
-              <label class="flex flex-col py-2 font-semibold text-[#edc8b8]"
-                >Image</label
+
+              <label class="py-2 font-semibold text-[#edc8b8]">Image</label>
+              <div
+                class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start"
               >
-              <input
-                type="text"
-                formControlName="quesImg"
-                class="w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
-              />
+                <div class="grid w-40 h-40 relative image-sizer">
+                  <input
+                    type="file"
+                    id="profileImg"
+                    accept="image/x-png,image/jpeg"
+                    title="Choose a file (Recommended)"
+                    (change)="insertImg($event)"
+                    class="absolute w-40 h-40 cursor-pointer image-sizer"
+                  />
+                  <div
+                    class="w-40 h-40 flex items-center justify-center rounded-lg image-sizer"
+                  >
+                    <img
+                      *ngIf="questionImage.length === 0"
+                      src="../../assets/images/upload.png"
+                      alt="upload"
+                      class="w-40 h-40"
+                    />
+                    <img
+                      *ngIf="questionImage.length !== 0"
+                      [src]="questionImage"
+                      alt="profileImg"
+                      class="w-[100px] h-[100px] rounded-lg image-sizer object-cover"
+                    />
+                  </div>
+                </div>
+                <div
+                  *ngIf="questionImage.length === 0"
+                  class="max-md:w-25 max-md:text-center text-red-600"
+                >
+                  Choose a file
+                </div>
+              </div>
             </form>
             <div class="flex flex-row items-center justify-center">
               <button
-                (click)="submit($event)"
+                (click)="submitForm($event)"
                 class="flex flex-row bg-[#f6f6f6] items-center justify-center w-[90px] my-5 rounded-md"
               >
                 <div class="text-lg text-[#3d405b] font-semibold py-2 mx-4">

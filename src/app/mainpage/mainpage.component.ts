@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {
   GetAllProblems,
   MainPageService,
+  PostAQuestionInterface,
 } from '../service/main-page/main-page.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
@@ -22,8 +23,7 @@ export class MainpageComponent implements OnInit {
   constructor(
     private router: Router,
     private mainPageService: MainPageService,
-    private notifierService: NotifierService,
-    private route: ActivatedRoute
+    private notifierService: NotifierService
   ) {}
 
   questionForm = new FormGroup({
@@ -31,7 +31,7 @@ export class MainpageComponent implements OnInit {
     description: new FormControl(),
     quesImg: new FormControl(),
   });
-
+  questionImage: string = '';
   questionList: GetAllProblems[] = [];
   isShown: boolean = false;
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class MainpageComponent implements OnInit {
       });
   }
   onClick(item: GetAllProblems, id: number) {
-    console.log('clciked');
+    console.log('clicked');
     this.router.navigate(['/question-info', id], {
       queryParams: {
         json: JSON.stringify({ question: item.problem.question }),
@@ -55,12 +55,12 @@ export class MainpageComponent implements OnInit {
   showQuesInput(event: any) {
     this.isShown = true;
   }
-  submit(event: any) {
+  submitForm(event: any) {
     event.preventDefault();
     const values: Question = JSON.parse(
       JSON.stringify(this.questionForm.value)
     );
-    console.log(values);
+    // console.log(values);
     if (values.question == null || values.question.trim() == '') {
       this.notifierService.showNotification('Question field cannot be empty');
     }
@@ -69,11 +69,42 @@ export class MainpageComponent implements OnInit {
         'Question Description field cannot be empty'
       );
     }
-    if (values.quesImg == null || values.question.trim() == '') {
-      this.notifierService.showNotification(
-        'Question Image field cannot be empty'
-      );
-    }
+
+    this.mainPageService
+      .PostAQuestion(values.question, values.description, values.quesImg)
+      .subscribe((value: PostAQuestionInterface) => {
+        console.log(value);
+        //  this.userProfile = value[0].profileImg;
+        //  this.technology = value[0].technology;
+      });
+
     this.isShown = false;
+  }
+
+  insertImg(event: any) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+      if (
+        file.size / 1048576 <= 2 &&
+        (file.type.match('image/png*') ||
+          file.type.match('image/jpg*') ||
+          file.type.match('image/jpeg*'))
+      ) {
+        reader.onload = () => {
+          console.log(reader.result);
+          this.questionImage = reader.result as string;
+        };
+      } else {
+        if (file.size / 1048576 > 2) {
+          this.notifierService.showNotification('Image size cannot exceed 2MB');
+        } else {
+          this.notifierService.showNotification(
+            'Image type should be JPEG/PNG'
+          );
+        }
+      }
+    }
   }
 }
