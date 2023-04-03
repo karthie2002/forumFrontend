@@ -39,7 +39,13 @@ export interface GetAllProblems {
   username: string | null;
   category: string | null;
 }
-
+export interface PostAQuestionInterface {
+  username: string;
+  question: string;
+  description: string;
+  problemImg: string;
+  upvote: number;
+}
 const urlBase: string = 'https://forum-backend-azure.vercel.app/problem/';
 @Injectable({
   providedIn: 'root',
@@ -67,5 +73,31 @@ export class MainPageService {
     console.log(error);
 
     return throwError(() => error);
+  }
+
+  PostAQuestion(question: string, description: string, problemImg: string) {
+    const url = `${urlBase}createNewProblem`;
+    const storage = localStorage.getItem('userData');
+    const name =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).username;
+
+    console.log({
+      username: name,
+      question: question,
+      description: description,
+      problemImg: problemImg,
+      upvote: 0,
+    });
+    return this.http
+      .post<PostAQuestionInterface>(url, {
+        username: name,
+        question: question,
+        description: description,
+        problemImg: problemImg,
+        upvote: 0,
+      })
+      .pipe(retry(0), catchError(this.handleError));
   }
 }

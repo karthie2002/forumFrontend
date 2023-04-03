@@ -32,7 +32,7 @@ export class QuestionInfoComponent implements OnInit {
         .GetAllQuestionsAndReplyForMainPage(JSON.parse(params.get('json')!))
         .subscribe((value: GetAllProblemsAndReplies[]) => {
           this.problemDetails = value;
-          console.log(value[0].replyMain[0].reply);
+          console.log(value[0].replyMain[0]);
         });
     });
   }

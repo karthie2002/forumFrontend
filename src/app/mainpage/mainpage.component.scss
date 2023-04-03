@@ -1,29 +1,22 @@
-$breakpoint-tablet: 1280px;
-$breakpoint-lap: 1550px;
-$breakpoint-lg-phone: 1000px;
-$breakpoint-phone: 640px;
-// $breakpoint-phone: 900px;
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"] {
+  color: transparent;
+}
 
-// @media (max-width: $breakpoint-tablet) {
-//   .mainText {
-//     width: 485px;
-//   }
-// }
-
-// @media (max-width: $breakpoint-lg-phone) {
-//   .sidebar {
-//     width: 0px;
-//   }
-// }
-
-// @media (max-width: $breakpoint-phone) {
-//   .mainText {
-//     width: 400px;
-//   }
-// }
-
-// @media (max-width: $breakpoint-tablet) {
-//   .sidebar {
-//     width: 0px;
-//   }
-// }
+@media not all and (min-width: 460px) {
+  input {
+    margin: 0;
+    width: 97%;
+    margin-right: 8px;
+  }
+  input[type="file"] {
+    width: 200px;
+    height: 200px;
+  }
+  .image-sizer {
+    width: 200px;
+    height: 200px;
+  }
+}
