@@ -53,7 +53,7 @@ export class MainpageComponent implements OnInit {
   }
 
   showQuesInput(event: any) {
-    this.isShown = true;
+    this.isShown = !this.isShown;
   }
   submitForm(event: any) {
     event.preventDefault();
@@ -69,7 +69,9 @@ export class MainpageComponent implements OnInit {
         'Question Description field cannot be empty'
       );
     }
-
+    if (values.quesImg == null || values.quesImg.trim() == '') {
+      values.quesImg = '';
+    }
     this.mainPageService
       .PostAQuestion(values.question, values.description, values.quesImg)
       .subscribe((value: PostAQuestionInterface) => {
