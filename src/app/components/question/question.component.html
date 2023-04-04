@@ -1,22 +1,24 @@
-<div class="mx-10">
-  <div class="flex flex-col bg-[#f8f8ff] rounded-t-lg">
+<div class="mx-10 flex flex-row max-xl:flex-col max-md:text-sm">
+  <div
+    class="flex flex-col bg-[#f8f8ff] flex-1"
+    *ngIf="problemImg.trim().length != 0"
+  >
     <img
-      *ngIf="problemImg.trim().length != 0"
       [src]="problemImg"
       alt="problem-image"
-      class="w-full h-auto bg-[#7f7f7f] rounded-t-lg object-cover max-sm:mb-5"
+      class="w-full h-full bg-[#7f7f7f] rounded-l-lg object-cover max-xl:rounded-t-lg max-sm:mb-5"
     />
   </div>
   <div
-    class="flex flex-col bg-[#f8f8ff] px-10 py-5 rounded-b-lg shadow-md gap-y-8 max-sm:px-2 max-sm:items-start"
+    class="question flex flex-col bg-[#f8f8ff] px-10 py-5 rounded-r-lg shadow-md gap-y-8 max-xl:rounded-b-lg max-sm:px-2 max-sm:items-start"
   >
     <div
-      class="flex flex-row justify-start items-center gap-x-4 max-sm:flex-col max-sm:items-start"
+      class="flex flex-row justify-start items-center gap-x-4 flex-wrap max-sm:gap-x-1"
     >
       <div
         class="flex flex-row justify-start items-center gap-x-4 max-sm:gap-x-1 max-sm:justify-center"
       >
-        <div class="flex flex-row justify-start items-center gap-x-4">
+        <div class="flex flex-row justify-start items-center gap-x-4 shrink-0">
           <a routerLink="/profile"
             ><img
               [src]="
@@ -25,18 +27,18 @@
                   : userProfile
               "
               alt="user-profile"
-              class="w-[60px] h-[60px] rounded-full object-cover bg-[#7f7f7f]"
+              class="w-[60px] h-[60px] rounded-full object-cover bg-[#7f7f7f] max-md:w-[40px] max-md:h-[40px]"
           /></a>
           <div>{{ username }}</div>
         </div>
         <ng-container *ngIf="category != null"
           ><ng-container *ngIf="category.trim().length != 0">
-            <div class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0"></div>
+            <div class="rounded-full bg-[#171717] w-1 h-1 shrink-0"></div>
             <div>{{ category }}</div>
           </ng-container>
         </ng-container>
       </div>
-      <div class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0"></div>
+      <div class="rounded-full bg-[#171717] w-1 h-1 shrink-0"></div>
       <div>{{ getDate(date) }}</div>
     </div>
     <div
@@ -45,8 +47,10 @@
       <div
         class="flex flex-col gap-y-3 max-lg:w-5/6 max-sm:w-full max-sm:items-start"
       >
-        <div class="text-lg max-sm:text-center font-bold">{{ question }}</div>
-        <div class="text-base max-sm:text-center">
+        <div class="text-lg max-sm:text-justify font-bold max-md:text-base">
+          {{ question }}
+        </div>
+        <div class="text-base max-md:text-sm max-sm:text-justify">
           {{ description }}
         </div>
       </div>
