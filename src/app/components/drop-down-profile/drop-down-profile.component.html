@@ -1,0 +1,26 @@
+<div class="fixed top-0 right-0 w-full z-10">
+  <button
+    class="p-1 m-4 mt-5 bg-white rounded-md shadow-md relative float-right"
+    (click)="onClickDropDown($event)"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 256 256"
+    >
+      <path
+        fill="currentColor"
+        d="M128 96a32 32 0 1 0 32 32a32 32 0 0 0-32-32Zm0 48a16 16 0 1 1 16-16a16 16 0 0 1-16 16Zm0-64a32 32 0 1 0-32-32a32 32 0 0 0 32 32Zm0-48a16 16 0 1 1-16 16a16 16 0 0 1 16-16Zm0 144a32 32 0 1 0 32 32a32 32 0 0 0-32-32Zm0 48a16 16 0 1 1 16-16a16 16 0 0 1-16 16Z"
+      />
+    </svg>
+  </button>
+  <div *ngIf="isOpenDropDown" [@slideInOut] class="absolute top-16 right-2">
+    <div class="bg-white flex flex-col p-2 gap-2 rounded-md shadow-md">
+      <button (click)="deleteUser($event)" class="text-red-600">
+        Delete Your account
+      </button>
+      <!-- <button (click)="deleteUser($event)">Delete Your account</button> -->
+    </div>
+  </div>
+</div>

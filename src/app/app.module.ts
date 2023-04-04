@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageZoomComponent } from './components/image-zoom/image-zoom.component';
 import { HamburgerComponent } from './components/hamburger/hamburger.component';
-import { MatSnackBarModule, MatSnackBarRef } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NotifierComponent } from './components/notifier/notifier.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionInfoComponent } from './question-info/question-info.component';
@@ -24,6 +24,7 @@ import { TextSearchComponent } from './components/text-search/text-search.compon
 import { UsercardComponent } from './components/usercard/usercard.component';
 import { ProblemcardComponent } from './components/problemcard/problemcard.component';
 import { ReplyContentComponent } from './components/reply-content/reply-content.component';
+import { DropDownProfileComponent } from './components/drop-down-profile/drop-down-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { ReplyContentComponent } from './components/reply-content/reply-content.
     UsercardComponent,
     ProblemcardComponent,
     ReplyContentComponent,
+    DropDownProfileComponent,
   ],
   imports: [
     BrowserModule,
