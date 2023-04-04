@@ -4,7 +4,7 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, retry, catchError, throwError, of } from 'rxjs';
+import { Observable, retry, catchError, of } from 'rxjs';
 export interface GetDetails {
   name: string;
   profileImg: string;
@@ -77,6 +77,32 @@ export class ProfileService {
           desc: desc,
           profileImg: profileImg,
           technology: technology,
+        },
+        { headers: descHeader }
+      )
+      .pipe(retry(0), catchError(this.handleError));
+  }
+  deleteUser() {
+    const storage = localStorage.getItem('userData');
+    const token =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).access_token;
+    const name =
+      storage == null
+        ? ''
+        : JSON.parse(localStorage.getItem('userData')!).username;
+    const url = `${urlBase}deleteUser`;
+    const descHeader: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http
+      .post(
+        url,
+        {
+          username: name,
         },
         { headers: descHeader }
       )

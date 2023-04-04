@@ -1,5 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { ProfileService } from 'src/app/service/profile/profile.service';
 
 @Component({
   selector: 'app-drop-down-profile',
@@ -18,6 +19,7 @@ import { Component } from '@angular/core';
   ],
 })
 export class DropDownProfileComponent {
+  constructor(private profileService: ProfileService) {}
   isOpenDropDown: boolean = false;
 
   onClickDropDown(event: Event) {
@@ -28,5 +30,8 @@ export class DropDownProfileComponent {
   deleteUser(event: Event) {
     event.preventDefault();
     console.log('Deleted');
+    this.profileService.deleteUser().subscribe((value) => {
+      console.log(value);
+    });
   }
 }
