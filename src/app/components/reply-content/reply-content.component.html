@@ -236,17 +236,28 @@
     </svg>
     <div *ngFor="let item of problemDetails[0].replyMain">
       <div class="flex flex-row items-center gap-2">
-        <div *ngIf="item.user.profileImg != ''">
+        <div *ngIf="item.user.profileImg != '' && item.user.profileImg != null">
           <img
             [src]="item.user.profileImg"
             class="h-20 w-20 rounded-full object-cover"
           />
         </div>
-        <div *ngIf="item.user.profileImg == ''">
+        <div *ngIf="item.user.profileImg == '' || item.user.profileImg == null">
           <img [src]="defaultUrl" class="h-20 w-20 rounded-full object-cover" />
         </div>
         <div class="flex flex-col">
-          <div class="font-bold">{{ item.user.name }}</div>
+          <div
+            class="font-bold"
+            *ngIf="item.user.name != null || item.user.name != ''"
+          >
+            {{ item.user.name }}
+          </div>
+          <div
+            class="font-bold"
+            *ngIf="item.user.name == null || item.user.name == ''"
+          >
+            Anonymous
+          </div>
           <div class="text-2xl">
             {{ item.reply.content }}
           </div>
