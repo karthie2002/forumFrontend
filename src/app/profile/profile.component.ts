@@ -18,13 +18,9 @@ export interface FormValue {
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  coverImage: string = '../../assets/images/coverImage1.jpg';
-  // userProfile: string =
-  //   'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
+  coverImage: string = '../../assets/images/banner-gradient1.png';
   userProfile: string = '';
-  // username: string = 'Akash';
-  // email: string = 'akash2003m@gmail.com';
-  technology: string[] = ['C', 'C++'];
+  technology: string[] = [];
   recommendationControl = new FormControl({ value: '', disabled: true });
   isEdit: boolean = false;
   isZoom: boolean = false;
@@ -103,7 +99,10 @@ export class ProfileComponent implements OnInit {
       }
     }
   }
-
+  removeUploadedImg(event: Event) {
+    event.preventDefault();
+    this.userProfile = '';
+  }
   addRecommendation(event: Event) {
     event.preventDefault();
     if (event != null) {

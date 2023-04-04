@@ -69,7 +69,9 @@
       </div>
     </div>
     <div class="p-5">
-      <app-reply-content [problemDetails]="problemDetails"></app-reply-content>
+      <app-reply-content
+        [question]="problemDetails[0].problem.question"
+      ></app-reply-content>
     </div>
   </div>
   <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>

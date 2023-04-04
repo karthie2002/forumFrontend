@@ -49,6 +49,12 @@ export interface TextSearchResponse {
   questionImage: string | null;
 }
 
+export interface replyQuestion {
+  username: string;
+  question: string;
+  content: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -58,6 +64,7 @@ export class HttpServiceService {
   loginUrl: string = 'https://forum-backend-azure.vercel.app/auth/loginUser';
   signUpUrl: string = 'https://forum-backend-azure.vercel.app/auth/createUser';
   textSearchUrl: string = 'https://forum-backend-azure.vercel.app/fulltext';
+  replyUrl: string = 'https://forum-backend-azure.vercel.app/reply/createReply';
 
   userDescUrl: string =
     'https://forum-backend-azure.vercel.app/user/updateDetails';
@@ -92,6 +99,11 @@ export class HttpServiceService {
   textSearch(ipSearch: InputSearch): Observable<TextSearchResponse[]> {
     return this.http
       .post<TextSearchResponse[]>(this.textSearchUrl, ipSearch, httpOptions)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+  replyQues(replyQuesT: replyQuestion) {
+    return this.http
+      .post(this.replyUrl, replyQuesT, httpOptions)
       .pipe(retry(0), catchError(this.handleError));
   }
 
