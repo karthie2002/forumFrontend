@@ -42,9 +42,9 @@ export class ReplyContentComponent {
     console.log(a.username);
     const smt = this.submitForm.value;
 
-    const name: string = smt.ip as string;
+    const c: string = smt.ip as string;
     this.replyQ.username = a.username;
-    this.replyQ.content = name;
+    this.replyQ.content = c.trim();
     this.replyQ.question = this.question;
     console.log('replyyy:' + this.replyQ.content);
     const val = this.httpService
