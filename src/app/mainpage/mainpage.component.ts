@@ -72,14 +72,13 @@ export class MainpageComponent implements OnInit {
     if (values.quesImg == null || values.quesImg.trim() == '') {
       values.quesImg = '';
     }
-    this.mainPageService
-      .PostAQuestion(values.question, values.description, values.quesImg)
-      .subscribe((value: PostAQuestionInterface) => {
-        console.log(value);
-        //  this.userProfile = value[0].profileImg;
-        //  this.technology = value[0].technology;
-      });
-
+    if (values.question != null && values.description != null) {
+      this.mainPageService
+        .PostAQuestion(values.question, values.description, values.quesImg)
+        .subscribe((value: PostAQuestionInterface) => {
+          console.log(value);
+        });
+    }
     this.isShown = false;
   }
 
