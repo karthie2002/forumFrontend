@@ -18,10 +18,12 @@ import { NotifierService } from 'src/app/service/notifier.service';
 })
 export class ReplyContentComponent {
   @Input() question: string = '';
-  submitTrue: number = 0;
+  submitTrue: number = 1;
+  loadTrue: number = 1;
   replyQ: replyQuestion = { username: '', question: '', content: '' };
   defaultUrl: string = '../../assets/images/user.png';
   problemDetails: GetAllProblemsAndReplies[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private mainPageService: MainPageService,
@@ -33,11 +35,13 @@ export class ReplyContentComponent {
     ip: '',
   });
   onSubmit(event: Event) {
+    this.submitTrue = 0;
     event.preventDefault();
     let s: any = localStorage.getItem('userData');
     let a = JSON.parse(s);
     console.log(a.username);
     const smt = this.submitForm.value;
+
     const name: string = smt.ip as string;
     this.replyQ.username = a.username;
     this.replyQ.content = name;
@@ -46,25 +50,26 @@ export class ReplyContentComponent {
     const val = this.httpService
       .replyQues(this.replyQ)
       .subscribe((response) => {
-        console.log(response[0].reply.replyId);
-        if (
-          response[0].reply.replyId == undefined ||
-          response[0].reply.replyId == null
-        ) {
-          this.notifierService.showNotification(response as any);
-        } else {
-          this.submitTrue = 1;
-        }
+        this.route.queryParamMap.subscribe((params) => {
+          this.mainPageService
+            .GetAllQuestionsAndReplyForMainPage(JSON.parse(params.get('json')!))
+            .subscribe((value: GetAllProblemsAndReplies[]) => {
+              this.problemDetails = value;
+              this.submitTrue = 1;
+            });
+        });
       });
+    this.submitForm.reset();
   }
   ngOnInit(): void {
-    this.submitTrue = 0;
+    this.loadTrue = 1;
     this.route.queryParamMap.subscribe((params) => {
       this.mainPageService
         .GetAllQuestionsAndReplyForMainPage(JSON.parse(params.get('json')!))
         .subscribe((value: GetAllProblemsAndReplies[]) => {
           this.problemDetails = value;
-          console.log(value[0].replyMain);
+          this.loadTrue = 0;
+          console.log(this.problemDetails);
         });
     });
   }
