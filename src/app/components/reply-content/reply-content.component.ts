@@ -9,7 +9,6 @@ import {
   HttpServiceService,
   replyQuestion,
 } from 'src/app/service/http-service.service';
-import { NotifierService } from 'src/app/service/notifier.service';
 
 @Component({
   selector: 'app-reply-content',
@@ -23,13 +22,12 @@ export class ReplyContentComponent {
   replyQ: replyQuestion = { username: '', question: '', content: '' };
   defaultUrl: string = '../../assets/images/user.png';
   problemDetails: GetAllProblemsAndReplies[] = [];
-
+  profImg: number = 0;
   constructor(
     private route: ActivatedRoute,
     private mainPageService: MainPageService,
     private formBuilder: FormBuilder,
-    private httpService: HttpServiceService,
-    private notifierService: NotifierService
+    private httpService: HttpServiceService
   ) {}
   submitForm = this.formBuilder.group({
     ip: '',
