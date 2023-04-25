@@ -1,14 +1,14 @@
 <div class="flex flex-col">
   <div class="flex flex-row">
     <div class="w-24 h-full max-sm:w-0"></div>
-    <div class="flex flex-row pt-5 bg-[#bbb2b5] flex-1">
+    <div class="flex flex-row pt-5 bg-[#abd1c6] flex-1">
       <div class="flex flex-col flex-wrap justify-center py-10 pl-10 w-11/12">
         <p
-          class="mainText text-2xl text-[#123d6a] font-semibold max-sm:text-lg"
+          class="mainText text-2xl text-[#001e1d] font-semibold max-sm:text-lg"
         >
           Explore, be curious
         </p>
-        <p class="mainText text-lg text-[#123d6a] max-sm:text-sm">
+        <p class="mainText text-lg text-[#0f3433] max-sm:text-sm">
           Discover stories, thinking and expertise from writers on any topic.
         </p>
         <div
@@ -16,7 +16,7 @@
           (click)="showQuesInput($event)"
         >
           <div
-            class="flex flex-row justify-start items-center py-1 px-3 bg-[#ede2dc] rounded-md w-full"
+            class="flex flex-row justify-start items-center py-1 px-3 bg-[#004643] rounded-md w-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -25,28 +25,28 @@
               viewBox="0 0 24 24"
             >
               <path
-                fill="#123d6a"
+                fill="#fffffe"
                 d="M11 17h2v-4h4v-2h-4V7h-2v4H7v2h4Zm-6 4q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Z"
               />
             </svg>
-            <div class="pl-3 text-[#123d6a]">Post your Question</div>
+            <div class="pl-3 text-[#fffffe]">Post your Question</div>
           </div>
         </div>
         <div *ngIf="isShown">
-          <div class="bg-[#123d6a] my-8 p-4 rounded-lg">
+          <div class="bg-[#004643] my-8 p-4 rounded-lg">
             <form
               class="grid grid-cols-3 grid-rows-4 mb-6"
               (ngSubmit)="submitForm($event)"
               [formGroup]="questionForm"
             >
-              <label class="py-2 font-semibold text-[#edc8b8]">Question</label>
+              <label class="py-2 font-semibold text-[#fffffe]">Question</label>
               <input
                 type="text"
                 formControlName="question"
                 class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
               />
 
-              <label class="py-2 font-semibold text-[#edc8b8]"
+              <label class="py-2 font-semibold text-[#fffffe]"
                 >Description</label
               >
               <input
@@ -55,7 +55,7 @@
                 class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
               />
 
-              <label class="py-2 font-semibold text-[#edc8b8]">Image</label>
+              <label class="py-2 font-semibold text-[#fffffe]">Image</label>
               <div
                 class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start"
               >
@@ -96,9 +96,9 @@
             <div class="flex flex-row items-center justify-center">
               <button
                 (click)="submitForm($event)"
-                class="flex flex-row bg-[#f6f6f6] items-center justify-center w-[90px] my-5 rounded-md"
+                class="flex flex-row bg-[#fffffe] items-center justify-center w-[90px] my-5 rounded-md"
               >
-                <div class="text-lg text-[#3d405b] font-semibold py-2 mx-4">
+                <div class="text-lg text-[#0f3433] font-semibold py-2 mx-4">
                   Submit
                 </div>
               </button>
