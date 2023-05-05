@@ -45,7 +45,7 @@
       <div
         class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0 max-sm:h-0 shrink-0"
       ></div>
-      <div class="text-[#000]">{{ getDate(date) }}</div>
+      <div class="text-[#000]">{{ date | date:'mediumDate' }}</div>
     </div>
     <div
       class="flex flex-row gap-x-5 justify-start items-center max-sm:flex-col"

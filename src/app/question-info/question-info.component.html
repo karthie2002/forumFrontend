@@ -41,7 +41,7 @@
                 </div>
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl max-sm:text-sm">
-                  {{ getDate(problemDetails[0].problem.createdAt) }}
+                  {{ problemDetails[0].problem.createdAt | date:'medium' }}
                 </div>
               </div>
             </div>

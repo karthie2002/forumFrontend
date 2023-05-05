@@ -19,13 +19,7 @@ export class QuestionInfoComponent implements OnInit {
   userProfile: string =
     'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
   problemDetails: GetAllProblemsAndReplies[] = [];
-  getDate(num: number) {
-    return new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    }).format(new Date(num));
-  }
+  
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
       this.mainPageService

@@ -15,11 +15,4 @@ export class QuestionComponent {
   @Input() problemImg: string = '';
   constructor() {}
 
-  getDate(num: number) {
-    return new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    }).format(new Date(num));
-  }
 }
