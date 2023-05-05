@@ -35,7 +35,7 @@
         <div *ngIf="isShown">
           <div class="bg-[#094067] my-8 p-4 rounded-lg">
             <form
-              class="grid formGrid mb-6"
+              class="grid formGrid mb-6 max-sm:gap-y-2"
               (ngSubmit)="submitForm($event)"
               [formGroup]="questionForm"
             >
@@ -43,7 +43,7 @@
               <input
                 type="text"
                 formControlName="question"
-                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
               />
 
               <label class="py-2 font-semibold text-[#fffffe]"
@@ -52,12 +52,11 @@
               <input
                 type="text"
                 formControlName="description"
-                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#edc8b8] mb-4 max-lg:mb-4 text-xl"
+                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
               />
-
               <label class="py-2 font-semibold text-[#fffffe]">Image</label>
               <div
-                class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start"
+                class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start max-sm:items-center"
               >
                 <div class="grid w-40 h-40 relative image-sizer">
                   <input

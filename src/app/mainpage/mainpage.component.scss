@@ -25,3 +25,10 @@ input[type="file"] {
     height: 200px;
   }
 }
+
+@media not all and (min-width: 480px) {
+  .formGrid {
+    grid-template-columns: repeat(1, 1fr);
+    // grid-template-rows: repeat(4);
+  }
+}
