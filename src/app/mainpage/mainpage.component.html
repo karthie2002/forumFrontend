@@ -1,14 +1,14 @@
 <div class="flex flex-col">
   <div class="flex flex-row">
     <div class="w-24 h-full max-sm:w-0"></div>
-    <div class="flex flex-row pt-5 bg-[#abd1c6] flex-1">
+    <div class="flex flex-row pt-5 bg-[#90b4ce] flex-1">
       <div class="flex flex-col flex-wrap justify-center py-10 pl-10 w-11/12">
         <p
-          class="mainText text-2xl text-[#001e1d] font-semibold max-sm:text-lg"
+          class="mainText text-2xl text-[#094067] font-semibold max-sm:text-lg"
         >
           Explore, be curious
         </p>
-        <p class="mainText text-lg text-[#0f3433] max-sm:text-sm">
+        <p class="mainText text-lg text-[#fffffe] max-sm:text-sm">
           Discover stories, thinking and expertise from writers on any topic.
         </p>
         <div
@@ -16,7 +16,7 @@
           (click)="showQuesInput($event)"
         >
           <div
-            class="flex flex-row justify-start items-center py-1 px-3 bg-[#004643] rounded-md w-full"
+            class="flex flex-row justify-start items-center py-1 px-3 bg-[#094067] rounded-md w-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,9 +33,9 @@
           </div>
         </div>
         <div *ngIf="isShown">
-          <div class="bg-[#004643] my-8 p-4 rounded-lg">
+          <div class="bg-[#094067] my-8 p-4 rounded-lg">
             <form
-              class="grid grid-cols-3 grid-rows-4 mb-6"
+              class="grid formGrid mb-6"
               (ngSubmit)="submitForm($event)"
               [formGroup]="questionForm"
             >
