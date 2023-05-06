@@ -8,6 +8,7 @@ input,
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 .formGrid {
   grid-template-columns: repeat(3, 1fr);
