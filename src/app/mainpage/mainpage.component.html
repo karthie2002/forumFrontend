@@ -4,10 +4,8 @@
     <div class="flex flex-row pt-5 bg-[#90b4ce] flex-1"></div>
     <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>
   </div>
-
   <div class="flex flex-row bg-[#90b4ce]">
     <div class="w-24 h-full max-sm:w-0"></div>
-
     <div
       class="questions flex flex-1 flex-col justify-center items-center gap-y-10 py-10"
     >
@@ -71,6 +69,7 @@
                   <input
                     type="file"
                     id="profileImg"
+                    formControlName="quesImg"
                     accept="image/x-png,image/jpeg"
                     title="Choose a file (Recommended)"
                     (change)="insertImg($event)"
@@ -114,9 +113,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="cursor-pointer w-full" (click)="onClick()">
-        <app-question></app-question>
-      </div> -->
+
       <div
         class="w-full cursor-pointer"
         *ngFor="let item of questionList; let i = index"

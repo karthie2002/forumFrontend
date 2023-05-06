@@ -15,6 +15,7 @@ import {
 } from '@angular/animations';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
+import { NavbarService } from '../service/navbar/navnar.service';
 
 export interface Question {
   question: string;
@@ -62,7 +63,8 @@ export class MainpageComponent implements OnInit {
   constructor(
     private router: Router,
     private mainPageService: MainPageService,
-    private notifierService: NotifierService
+    private notifierService: NotifierService,
+    private navbarService: NavbarService
   ) {}
 
   questionForm = new FormGroup({
@@ -78,6 +80,7 @@ export class MainpageComponent implements OnInit {
       .GetAllQuestionsForMainPage()
       .subscribe((value: GetAllProblems[]) => {
         this.questionList = value;
+        this.questionList = this.questionList.reverse();
         console.log(value);
       });
   }
@@ -99,7 +102,7 @@ export class MainpageComponent implements OnInit {
     const values: Question = JSON.parse(
       JSON.stringify(this.questionForm.value)
     );
-    // console.log(values);
+    console.log(values);
     if (values.question == null || values.question.trim() == '') {
       this.notifierService.showNotification('Question field cannot be empty');
     }
@@ -110,7 +113,10 @@ export class MainpageComponent implements OnInit {
     }
     if (values.quesImg == null || values.quesImg.trim() == '') {
       values.quesImg = '';
+    } else {
+      values.quesImg = this.questionImage;
     }
+
     if (values.question != null && values.description != null) {
       this.mainPageService
         .PostAQuestion(values.question, values.description, values.quesImg)
@@ -118,6 +124,24 @@ export class MainpageComponent implements OnInit {
           console.log(value);
         });
     }
+
+    let profile = '';
+    this.navbarService.getUserProfile().subscribe((sample) => {
+      profile = sample.profileImg;
+    });
+    const questionValue: GetAllProblems = {
+      problem: {
+        createdAt: Date.now(),
+        question: values.question,
+        problemImg: values.quesImg,
+        description: values.description,
+        upvote: 0,
+      },
+      userProfileImg: profile,
+      username: JSON.parse(localStorage.getItem('userData')!).username,
+      category: '',
+    };
+    this.questionList = [questionValue, ...this.questionList];
     this.isShown = false;
   }
 

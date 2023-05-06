@@ -83,13 +83,13 @@ export class MainPageService {
         ? ''
         : JSON.parse(localStorage.getItem('userData')!).username;
 
-    console.log({
-      username: name,
-      question: question,
-      description: description,
-      problemImg: problemImg,
-      upvote: 0,
-    });
+    // console.log({
+    //   username: name,
+    //   question: question,
+    //   description: description,
+    //   problemImg: problemImg,
+    //   upvote: 0,
+    // });
     return this.http
       .post<PostAQuestionInterface>(url, {
         username: name,

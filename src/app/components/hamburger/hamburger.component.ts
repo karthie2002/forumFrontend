@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-hamburger',
@@ -10,7 +10,7 @@ export class HamburgerComponent {
   getScreenHeight: number = 0;
   getScreenWidth: number = 0;
   isVisible: boolean = true;
-  
+
   constructor() {
     this.onWindowResize();
   }
