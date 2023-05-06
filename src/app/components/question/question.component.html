@@ -1,67 +1,54 @@
 <div class="mx-5 flex flex-row max-xl:flex-col max-md:text-sm">
-  <div
-    class="flex flex-col bg-[#f8f8ff] flex-1"
-    *ngIf="problemImg.trim().length != 0"
-  >
+  <div class="flex flex-col flex-1" *ngIf="problemImg.trim().length != 0">
     <img
       [src]="problemImg"
       alt="problem-image"
-      class="w-full h-full bg-[#7f7f7f] rounded-l-lg object-cover max-xl:rounded-t-lg max-sm:mb-5"
+      class="w-full h-full bg-[#7f7f7f] rounded-l-lg rounded-b-lg object-cover max-xl:rounded-t-lg"
     />
   </div>
   <div
-    class="question flex flex-col bg-[#fffffe] px-10 py-5 rounded-l-lg rounded-r-lg shadow-md gap-y-8 max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
+    class="question flex flex-col bg-[#fffffe] px-5 py-5 rounded-l-lg rounded-r-lg shadow-md gap-y-8 max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
   >
-    <div
-      class="flex flex-row justify-start items-center gap-x-4 flex-wrap max-sm:gap-x-1"
-    >
+    <div class="flex justify-between items-center w-full">
       <div
-        class="flex flex-row justify-start items-center gap-x-4 max-sm:gap-x-1 max-sm:justify-center"
+        class="flex justify-start items-center gap-x-6 flex-wrap max-sm:gap-x-2"
       >
-        <div
-          class="flex flex-row justify-start items-center gap-x-4 shrink-0 max-sm:justify-between"
-        >
-          <a routerLink="/profile"
-            ><img
-              [src]="
-                userProfile.trim().length == 0
-                  ? '../../assets/images/user.png'
-                  : userProfile
-              "
-              alt="user-profile"
-              class="w-[60px] h-[60px] rounded-full object-cover bg-[#7f7f7f] max-md:w-[40px] max-md:h-[40px]"
-          /></a>
-          <div class="text-[#000]">{{ username }}</div>
-        </div>
-        <ng-container *ngIf="category != null"
-          ><ng-container *ngIf="category.trim().length != 0">
-            <div
-              class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0 max-sm:h-0 shrink-0"
-            ></div>
-            <div class="text-[#000]">{{ category }}</div>
-          </ng-container>
-        </ng-container>
+        <a routerLink="/profile"
+          ><img
+            [src]="
+              userProfile.trim().length == 0
+                ? '../../assets/images/user.png'
+                : userProfile
+            "
+            alt="user-profile"
+            class="w-[60px] h-[60px] rounded-full object-cover bg-[#7f7f7f] max-md:w-[40px] max-md:h-[40px]"
+        /></a>
+        <div class="text-[#5f6c7b] text-lg font-extrabold tracking-wide">{{ username }}</div>
       </div>
-      <div
-        class="rounded-full bg-[#171717] w-1 h-1 max-sm:w-0 max-sm:h-0 shrink-0"
-      ></div>
-      <div class="text-[#000]">{{ date | date:'mediumDate' }}</div>
+      <div class="text-[#5f6c7b] justify-self-end text-right">
+        {{ date | date : "mediumDate" }}
+      </div>
     </div>
     <div
       class="flex flex-row gap-x-5 justify-start items-center max-sm:flex-col"
     >
       <div
-        class="flex flex-col flex-1 gap-y-3 max-lg:w-5/6 max-sm:w-full max-sm:items-start"
+        class="flex flex-col flex-1 gap-y-8 max-lg:w-5/6 max-sm:w-full max-sm:items-start"
       >
         <div
-          class="text-lg text-[#000] text-justify font-bold max-md:text-base"
+          class="text-xl text-[#094067] text-justify max-md:text-base"
         >
           {{ question }}
         </div>
-        <div class="text-base text-[#000] max-md:text-sm text-justify">
+        <div class="text-base text-[#ef4565] max-md:text-sm text-justify">
           {{ description }}
         </div>
       </div>
     </div>
+    <ng-container *ngIf="category != null"
+      ><ng-container *ngIf="category.trim().length != 0">
+        <div class="text-[#5f6c7b] text-xs self-end">{{ category }}</div>
+      </ng-container>
+    </ng-container>
   </div>
 </div>
