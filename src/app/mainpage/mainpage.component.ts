@@ -28,22 +28,33 @@ export interface Question {
   styleUrls: ['./mainpage.component.scss'],
   animations: [
     trigger('slideAnimation', [
-      state(
-        'in',
-        style({
-          opacity: 0.8,
-          height: '0px',
-        })
+      // state(
+      //   'in',
+      //   style({
+      //
+      //   })
+      // ),
+      // state(
+      //   'out',
+      //   style({
+      //     opacity: 1,
+      //     height: 'auto',
+      //   })
+      // ),
+      transition(
+        'in => out',
+        animate(
+          '1000ms linear',
+          style({ transform: 'translateY(0%)', opacity: 0.8, height: '0px' })
+        )
       ),
-      state(
-        'out',
-        style({
-          opacity: 1,
-          height: 'auto',
-        })
+      transition(
+        'out => in',
+        animate(
+          '200ms linear',
+          style({ transform: 'translateY(100%)', opacity: 1, height: 'auto' })
+        )
       ),
-      transition('in => out', animate('1000ms ease-in-out')),
-      transition('out => in', animate('200ms ease-in-out')),
     ]),
   ],
 })
