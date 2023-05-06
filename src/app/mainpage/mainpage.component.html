@@ -32,7 +32,7 @@
             <div class="pl-3 text-[#fffffe]">Post your Question</div>
           </div>
         </div>
-        <div *ngIf="isShown">
+        <div *ngIf="isShown" [@slideAnimation]="isShown ? 'out' : 'in'">
           <div class="bg-[#094067] my-8 p-4 rounded-lg">
             <form
               class="grid formGrid mb-6 max-sm:gap-y-2"

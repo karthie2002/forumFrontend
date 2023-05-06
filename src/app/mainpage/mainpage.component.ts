@@ -5,6 +5,14 @@ import {
   MainPageService,
   PostAQuestionInterface,
 } from '../service/main-page/main-page.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
 
@@ -18,6 +26,26 @@ export interface Question {
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
   styleUrls: ['./mainpage.component.scss'],
+  animations: [
+    trigger('slideAnimation', [
+      state(
+        'in',
+        style({
+          opacity: 0.8,
+          height: '0px',
+        })
+      ),
+      state(
+        'out',
+        style({
+          opacity: 1,
+          height: 'auto',
+        })
+      ),
+      transition('in => out', animate('1000ms ease-in-out')),
+      transition('out => in', animate('200ms ease-in-out')),
+    ]),
+  ],
 })
 export class MainpageComponent implements OnInit {
   constructor(

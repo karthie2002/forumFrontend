@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import {
   GetAllProblemsAndReplies,
   MainPageService,
@@ -16,6 +17,7 @@ import {
   styleUrls: ['./reply-content.component.scss'],
 })
 export class ReplyContentComponent {
+  isOpen: boolean = false;
   @Input() question: string = '';
   submitTrue: number = 1;
   loadTrue: number = 1;
@@ -58,6 +60,14 @@ export class ReplyContentComponent {
         });
       });
     this.submitForm.reset();
+  }
+
+  getDate(num: number) {
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    }).format(new Date(num));
   }
   ngOnInit(): void {
     this.loadTrue = 1;
