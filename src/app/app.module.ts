@@ -4,7 +4,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './auth-layout/login/login.component';
 import { QuestionComponent } from './components/question/question.component';

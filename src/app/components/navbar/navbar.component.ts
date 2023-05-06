@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import {
   GetUserProfileInterface,
   NavbarService,
-} from 'src/app/service/navbar/navnar.service';
+} from 'src/app/service/navbar/navbar.service';
 
 @Component({
   selector: 'app-navbar',

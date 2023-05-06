@@ -15,7 +15,7 @@ import {
 } from '@angular/animations';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
-import { NavbarService } from '../service/navbar/navnar.service';
+import { NavbarService } from '../service/navbar/navbar.service';
 
 export interface Question {
   question: string;
