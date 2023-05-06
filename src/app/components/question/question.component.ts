@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import * as Prism from 'prismjs';
 
 @Component({
   selector: 'app-question',
@@ -13,6 +14,8 @@ export class QuestionComponent {
   @Input() date: number = 0;
   @Input() userProfile: string = '';
   @Input() problemImg: string = '';
-  constructor() {}
+  constructor() {
+    
+  }
 
 }
