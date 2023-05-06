@@ -4,7 +4,11 @@ input[type="file"]::-webkit-file-upload-button {
 input[type="file"] {
   color: transparent;
 }
-
+input,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
 .formGrid {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4);
