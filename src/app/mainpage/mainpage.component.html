@@ -1,8 +1,17 @@
 <div class="flex flex-col">
   <div class="flex flex-row">
     <div class="w-24 h-full max-sm:w-0"></div>
-    <div class="flex flex-row pt-5 bg-[#90b4ce] flex-1">
-      <div class="flex flex-col flex-wrap justify-center py-10 pl-10 w-11/12">
+    <div class="flex flex-row pt-5 bg-[#90b4ce] flex-1"></div>
+    <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>
+  </div>
+
+  <div class="flex flex-row bg-[#90b4ce]">
+    <div class="w-24 h-full max-sm:w-0"></div>
+
+    <div
+      class="questions flex flex-1 flex-col justify-center items-center gap-y-10 py-10"
+    >
+      <div class="flex flex-col flex-wrap justify-center w-full px-5">
         <p
           class="mainText text-2xl text-[#094067] font-semibold max-sm:text-lg"
         >
@@ -40,20 +49,20 @@
               [formGroup]="questionForm"
             >
               <label class="py-2 font-semibold text-[#fffffe]">Question</label>
-              <input
+              <textarea
                 type="text"
                 formControlName="question"
-                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
-              />
+                class="col-span-4 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
+              ></textarea>
 
               <label class="py-2 font-semibold text-[#fffffe]"
                 >Description</label
               >
-              <input
+              <textarea
                 type="text"
                 formControlName="description"
-                class="col-span-2 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
-              />
+                class="col-span-4 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
+              ></textarea>
               <label class="py-2 font-semibold text-[#fffffe]">Image</label>
               <div
                 class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start max-sm:items-center"
@@ -105,15 +114,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>
-  </div>
-
-  <div class="flex flex-row bg-[#90b4ce]">
-    <div class="w-24 h-full max-sm:w-0"></div>
-    <div
-      class="questions flex flex-1 flex-col justify-center items-center gap-y-10 py-10"
-    >
       <!-- <div class="cursor-pointer w-full" (click)="onClick()">
         <app-question></app-question>
       </div> -->
