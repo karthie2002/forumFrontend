@@ -3,11 +3,11 @@
     <img
       [src]="problemImg"
       alt="problem-image"
-      class="w-full h-full bg-[#7f7f7f] rounded-lg rounded-b-lg object-cover max-xl:rounded-t-lg"
+      class="w-full h-full bg-[#7f7f7f] rounded-l-lg object-cover max-xl:rounded-t-lg"
     />
   </div>
   <div
-    class="question flex flex-col bg-[#fffffe] px-5 py-5 rounded-l-lg rounded-r-lg shadow-md gap-y-8 max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
+    class="question flex flex-col bg-[#ffffff] px-5 py-5 rounded-r-lg shadow-md gap-y-8 max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
   >
     <div class="flex justify-between items-center w-full">
       <div
@@ -23,7 +23,9 @@
             alt="user-profile"
             class="w-[60px] h-[60px] rounded-full object-cover bg-[#7f7f7f] max-md:w-[40px] max-md:h-[40px]"
         /></a>
-        <div class="text-[#5f6c7b] text-lg font-extrabold tracking-wide">{{ username }}</div>
+        <div class="text-[#5f6c7b] text-lg font-extrabold tracking-wide">
+          {{ username }}
+        </div>
       </div>
       <div class="text-[#5f6c7b] justify-self-end text-right">
         {{ date | date : "mediumDate" }}
@@ -35,9 +37,7 @@
       <div
         class="flex flex-col flex-1 gap-y-8 max-lg:w-5/6 max-sm:w-full max-sm:items-start"
       >
-        <div
-          class="text-xl text-[#094067] text-justify max-md:text-base"
-        >
+        <div class="text-xl text-[#094067] text-justify max-md:text-base">
           {{ question }}
         </div>
         <div class="text-base text-[#ef4565] max-md:text-sm text-justify">
