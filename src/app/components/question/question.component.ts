@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import * as Prism from 'prismjs';
 
 @Component({
   selector: 'app-question',

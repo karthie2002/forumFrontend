@@ -7,7 +7,12 @@
     </div>
 
     <div
-      class="flex flex-col border-solid rounded-2xl drop-shadow-lg m-4 p-6 bg-[url('https://static.vecteezy.com/system/resources/previews/002/099/717/original/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg')] bg-cover bg-no-repeat"
+      [ngStyle]="{
+        background: 'url(' + problemDetails[0].problem.problemImg + ')',
+        'background-size': 'cover',
+        'background-repeat': 'no-repeat'
+      }"
+      class="flex flex-col border-solid rounded-2xl drop-shadow-lg m-4 p-6"
       *ngIf="problemDetails.length != 0"
     >
       <div
@@ -41,7 +46,7 @@
                 </div>
                 <div class="rounded-full bg-[#171717] w-1 h-1 max-lg:w-0"></div>
                 <div class="text-xl max-sm:text-sm">
-                  {{ problemDetails[0].problem.createdAt | date:'medium' }}
+                  {{ problemDetails[0].problem.createdAt | date : "medium" }}
                 </div>
               </div>
             </div>
