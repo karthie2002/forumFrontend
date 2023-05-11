@@ -1,5 +1,5 @@
 <div>
-  <div class="flex flex-row gap-2 items-center">
+  <div class="flex flex-row gap-2 items-end">
     <div class="font-bold text-2xl mb-1">Discussion</div>
     <button (click)="isOpen = !isOpen" class="font-extrabold">
       <mat-icon fontIcon="add_circle_outline" style="color: #136afa"></mat-icon>
@@ -241,7 +241,7 @@
             >
               <img
                 [src]="item.user.profileImg"
-                class="h-20 w-20 rounded-full object-cover"
+                class="h-20 w-20 rounded-full object-cover max-sm:h-8 max-sm:w-10"
               />
             </div>
             <div
@@ -249,7 +249,7 @@
             >
               <img
                 [src]="defaultUrl"
-                class="h-20 w-20 rounded-full object-cover"
+                class="h-20 w-20 rounded-full object-cover max-sm:h-8 max-sm:w-10"
               />
             </div>
             <div class="flex flex-col w-full">
