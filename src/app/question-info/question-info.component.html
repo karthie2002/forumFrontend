@@ -75,6 +75,7 @@
     </div>
     <div class="p-5">
       <app-reply-content
+        *ngIf="problemDetails[0] && problemDetails[0].problem"
         [question]="problemDetails[0].problem.question"
       ></app-reply-content>
     </div>
