@@ -6,10 +6,11 @@
     placeholder="Type your question"
   />
 </div>
-<div class="relative z-10">
+<div class="relative z-10" [ngStyle]="{ 'max-height.px': 500 }">
   <div
+    [ngStyle]="{ 'max-height.px': 500 }"
     *ngIf="res.length != 0"
-    class="absolute bg-[#b8c1ec] text-[#f6f6f6] font-semibold backdrop-filter backdrop-blur-md bg-opacity-100 right-0 left-0 ml-3 mr-3 p-4 rounded-md"
+    class="absolute overflow-scroll bg-[#b8c1ec] text-[#f6f6f6] font-semibold backdrop-filter backdrop-blur-md bg-opacity-100 right-0 left-0 ml-3 mr-3 p-4 rounded-md"
   >
     <div *ngFor="let item of res">
       <div *ngIf="item.label[0] == 'User'">
