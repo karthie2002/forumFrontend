@@ -94,7 +94,7 @@ export class MainpageComponent implements OnInit {
     });
   }
 
-  showQuesInput(event: any) {
+  showQuesInput() {
     this.isShown = !this.isShown;
   }
   submitForm(event: any) {

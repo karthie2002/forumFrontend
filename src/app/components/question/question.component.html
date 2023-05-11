@@ -1,14 +1,19 @@
-<div class="mx-5 flex flex-row max-xl:flex-col max-md:text-sm">
+<div
+  class="mx-5 flex flex-row drop-shadow-md max-xl:flex-col max-md:text-sm bg-transparent"
+>
   <div class="flex flex-col flex-1" *ngIf="problemImg.trim().length != 0">
     <img
       [src]="problemImg"
       alt="problem-image"
-      class="w-full h-full bg-[#7f7f7f] rounded-l-lg object-cover max-xl:rounded-t-lg"
+      class="w-full h-full bg-[#7f7f7f] object-cover rounded-l-lg max-xl:rounded-t-lg"
     />
   </div>
   <div
-    class="question flex flex-col bg-[#ffffff] px-5 py-5 rounded-r-lg shadow-md gap-y-8 max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
+    class="question flex flex-col bg-[#ffffff] px-5 py-5 gap-y-8 rounded-r-lg max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
   >
+    <!-- [ngStyle]="{
+      'border-radius': problemImg.trim().length == 0 ? '0.5rem' : ''
+    }" -->
     <div class="flex justify-between items-center w-full">
       <div
         class="flex justify-start items-center gap-x-6 gap-y-[10px] flex-wrap max-sm:gap-x-2"
@@ -43,11 +48,31 @@
         <div class="text-base text-[#ef4565] max-md:text-sm text-justify">
           {{ description }}
         </div>
+        <div
+          *ngIf="category == null"
+          (click)="addCateg()"
+          class="flex flex-row self-end text-[#fff] gap-x-1.5 bg-[#ef4565] p-1 rounded-md"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="#fff"
+              d="M11 13v3q0 .425.288.713T12 17q.425 0 .713-.288T13 16v-3h3q.425 0 .713-.288T17 12q0-.425-.288-.713T16 11h-3V8q0-.425-.288-.713T12 7q-.425 0-.713.288T11 8v3H8q-.425 0-.713.288T7 12q0 .425.288.713T8 13h3Zm1 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"
+            />
+          </svg>
+          <div class="text-xs self-end pr-0.5">Add Category</div>
+        </div>
       </div>
     </div>
     <ng-container *ngIf="category != null"
       ><ng-container *ngIf="category.trim().length != 0">
-        <div class="text-[#5f6c7b] text-xs self-end">{{ category }}</div>
+        <div class="bg-[#094067] p-1 rounded-md text-[#fff] text-xs self-end">
+          {{ category }}
+        </div>
       </ng-container>
     </ng-container>
   </div>

@@ -1,4 +1,9 @@
 import { Component, Input } from '@angular/core';
+import {
+  AddCategory,
+  QuestionService,
+} from 'src/app/service/main-page/question.service';
+import { NotifierService } from 'src/app/service/notifier.service';
 
 @Component({
   selector: 'app-question',
@@ -13,8 +18,22 @@ export class QuestionComponent {
   @Input() date: number = 0;
   @Input() userProfile: string = '';
   @Input() problemImg: string = '';
-  constructor() {
-    
-  }
+  constructor(
+    private questionService: QuestionService,
+    private notifierService: NotifierService
+  ) {}
 
+  addCateg() {
+    if (this.question != null || this.category != null) {
+      this.questionService
+        .AddQuestionToCategory(this.question, this.category as string)
+        .subscribe((value: AddCategory) => {
+          console.log(value);
+        });
+    } else {
+      this.notifierService.showNotification(
+        'Question Description field cannot be empty'
+      );
+    }
+  }
 }
