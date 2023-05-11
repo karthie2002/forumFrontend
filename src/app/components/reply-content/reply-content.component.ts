@@ -62,13 +62,13 @@ export class ReplyContentComponent {
     this.submitForm.reset();
   }
 
-  getDate(num: number) {
-    return new Intl.DateTimeFormat('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    }).format(new Date(num));
-  }
+  // getDate(num: number) {
+  //   return new Intl.DateTimeFormat('en-US', {
+  //     month: 'short',
+  //     day: 'numeric',
+  //     year: 'numeric',
+  //   }).format(new Date(num));
+  // }
   ngOnInit(): void {
     this.loadTrue = 1;
     this.route.queryParamMap.subscribe((params) => {
