@@ -12,7 +12,7 @@
         'background-size': 'cover',
         'background-repeat': 'no-repeat'
       }"
-      class="flex flex-col border-solid rounded-2xl drop-shadow-lg p-6"
+      class="flex flex-col border-solid rounded-2xl drop-shadow-lg p-6 m-6"
       *ngIf="problemDetails.length != 0"
     >
       <div
@@ -65,13 +65,26 @@
         <div class="text-xl mb-5">
           {{ problemDetails[0].problem.description }}
         </div>
-
-        <button
-          (click)="onClickUpvote()"
-          class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] w-24 font-bold p-2 rounded-2xl"
-        >
-          {{ upvoteCounter }} Upvote
-        </button>
+        <div class="flex flex-row gap-2">
+          <button
+            (click)="onClickUpvote()"
+            class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] font-bold p-2 rounded-2xl"
+          >
+            {{ upvoteCounter }} Upvote
+          </button>
+          <button
+            *ngIf="problemDetails[0].problem.problemImg"
+            (click)="zoomImage()"
+            class="cursor-pointer mt-2 flex items-center justify-center border-[#136afa] border-2 font-bold p-2 rounded-2xl"
+          >
+            View Image
+          </button>
+        </div>
+        <img
+          [src]="problemDetails[0].problem.problemImg"
+          class="flex m-3"
+          *ngIf="imgView"
+        />
       </div>
     </div>
     <div class="p-5">
@@ -83,4 +96,10 @@
   </div>
   <div class="sidebar w-64 h-full justify-end right-0 max-lg:w-0"></div>
   <app-sidebar></app-sidebar>
+  <div *ngIf="isZoom">
+    <app-image-zoom
+      (onZoomEmit)="zoomImage()"
+      [userProfile]="problemDetails[0].problem.problemImg"
+    ></app-image-zoom>
+  </div>
 </div>

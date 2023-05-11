@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   GetAllProblemsAndReplies,
   MainPageService,
@@ -17,6 +18,8 @@ export class QuestionInfoComponent implements OnInit {
   ) {}
 
   userImg: string = '../../assets/images/user.png';
+  isZoom: boolean = false;
+  imgView: boolean = false;
   userProfile: string =
     'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
   problemDetails: GetAllProblemsAndReplies[] = [];
@@ -33,5 +36,8 @@ export class QuestionInfoComponent implements OnInit {
   }
   onClickUpvote() {
     this.upvoteCounter++;
+  }
+  zoomImage() {
+    this.isZoom = !this.isZoom;
   }
 }

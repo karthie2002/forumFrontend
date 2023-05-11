@@ -25,6 +25,9 @@ import { UsercardComponent } from './components/usercard/usercard.component';
 import { ProblemcardComponent } from './components/problemcard/problemcard.component';
 import { ReplyContentComponent } from './components/reply-content/reply-content.component';
 import { DropDownProfileComponent } from './components/drop-down-profile/drop-down-profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,8 @@ import { DropDownProfileComponent } from './components/drop-down-profile/drop-do
     BrowserAnimationsModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
