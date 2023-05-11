@@ -256,6 +256,12 @@
               <div class="flex flex-row items-center justify-between">
                 <div
                   class="font-extrabold text-xl"
+                  *ngIf="item.user.name == null || item.user.name == ''"
+                >
+                  Anonymous
+                </div>
+                <div
+                  class="font-extrabold text-xl"
                   *ngIf="item.user.name != null || item.user.name != ''"
                 >
                   {{ item.user.name }}
@@ -265,13 +271,6 @@
                   {{ item.reply.createdAt | date : "mediumDate" }}
                 </div>
               </div>
-              <div
-                class="font-extrabold text-xl"
-                *ngIf="item.user.name == null || item.user.name == ''"
-              >
-                Anonymous
-              </div>
-
               <div class="text-xl">
                 {{ item.reply.content }}
               </div>
