@@ -2,7 +2,7 @@
   <div class="flex flex-row gap-2 mb-2  items-end">
     <div class="font-bold text-2xl mb-1">Discussion</div>
     <button
-    
+
       (click)="isOpen = !isOpen"
       class=" font-extrabold"
     >
@@ -264,15 +264,15 @@
               />
             </div>
             <div class="flex flex-col">
-              <div class="flex flex-row gap-2">
+              <div class="flex flex-row gap-2 items-center">
                 <div
-                  class="font-extrabold"
+                  class="font-extrabold text-2xl"
                   *ngIf="item.user.name != null || item.user.name != ''"
                 >
                   {{ item.user.name }}
                 </div>
 
-                <div class="text-sm">{{ getDate(item.reply.createdAt) }}</div>
+                <div class="text-xl text-gray-500">{{ getDate(item.reply.createdAt) }}</div>
               </div>
               <div
                 class="font-bold"
@@ -281,7 +281,7 @@
                 Anonymous
               </div>
 
-              <div class="text-2xl">
+              <div class="text-xl">
                 {{ item.reply.content }}
               </div>
             </div>
