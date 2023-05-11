@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-
 import {
   GetAllProblemsAndReplies,
   MainPageService,
@@ -15,6 +14,7 @@ import {
   selector: 'app-reply-content',
   templateUrl: './reply-content.component.html',
   styleUrls: ['./reply-content.component.scss'],
+  
 })
 export class ReplyContentComponent {
   isOpen: boolean = false;

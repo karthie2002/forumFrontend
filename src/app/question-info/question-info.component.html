@@ -59,18 +59,19 @@
           </div>
         </div>
 
-        <div class="font-bold text-2xl mt-5 mb-4 max-sm:text-[18px]">
+        <div class="font-bold text-xl mt-5 mb-4 max-sm:text-[18px]">
           {{ problemDetails[0].problem.question }}
         </div>
         <div class="text-xl mb-5">
           {{ problemDetails[0].problem.description }}
         </div>
 
-        <div
+        <button
+          (click)="onClickUpvote()"
           class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] w-24 font-bold p-2 rounded-2xl"
         >
-          {{ problemDetails[0].problem.upvote }} Upvote
-        </div>
+          {{ upvoteCounter }} Upvote
+        </button>
       </div>
     </div>
     <div class="p-5">

@@ -15,6 +15,12 @@ export class QuestionInfoComponent implements OnInit {
     private route: ActivatedRoute,
     private mainPageService: MainPageService
   ) {}
+
+  userImg: string = '../../assets/images/user.png';
+  userProfile: string =
+    'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
+  problemDetails: GetAllProblemsAndReplies[] = [];
+  upvoteCounter: number = 0;
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
       this.mainPageService
@@ -25,8 +31,7 @@ export class QuestionInfoComponent implements OnInit {
         });
     });
   }
-  userImg: string = '../../assets/images/user.png';
-  userProfile: string =
-    'https://www.iwmbuzz.com/wp-content/uploads/2022/07/bff-goals-selena-gomez-celebrates-her-30th-birthday-with-taylor-swift-says-nerdy-and-worthy-2.jpg';
-  problemDetails: GetAllProblemsAndReplies[] = [];
+  onClickUpvote() {
+    this.upvoteCounter++;
+  }
 }
