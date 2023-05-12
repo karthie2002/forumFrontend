@@ -119,6 +119,7 @@
         *ngFor="let item of questionList; let i = index"
         (click)="onClick(item, i)"
       >
+        <!--  -->
         <app-question
           [date]="item.problem.createdAt"
           [category]="item.category"

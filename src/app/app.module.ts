@@ -27,6 +27,7 @@ import { ReplyContentComponent } from './components/reply-content/reply-content.
 import { DropDownProfileComponent } from './components/drop-down-profile/drop-down-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { CategoryeditorComponent } from './components/categoryeditor/categoryeditor.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MatButtonModule } from '@angular/material/button';
     ProblemcardComponent,
     ReplyContentComponent,
     DropDownProfileComponent,
+    CategoryeditorComponent,
   ],
   imports: [
     BrowserModule,

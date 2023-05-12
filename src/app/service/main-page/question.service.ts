@@ -29,7 +29,7 @@ export class QuestionService {
     });
     return this.http
       .post<AddCategory>(url, {
-        username: name,
+        name: name,
         question: question,
         categName: categName,
       })

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {
   AddCategory,
   QuestionService,
@@ -18,18 +19,17 @@ export class QuestionComponent {
   @Input() date: number = 0;
   @Input() userProfile: string = '';
   @Input() problemImg: string = '';
+  isAddCateg: boolean = false;
   constructor(
     private questionService: QuestionService,
     private notifierService: NotifierService
   ) {}
 
-  addCateg() {
+  addCateg(event: Event) {
+    event.stopPropagation();
+    // console.log('addcateg', this.category, this.question);
     if (this.question != null || this.category != null) {
-      this.questionService
-        .AddQuestionToCategory(this.question, this.category as string)
-        .subscribe((value: AddCategory) => {
-          console.log(value);
-        });
+      this.isAddCateg = !this.isAddCateg;
     } else {
       this.notifierService.showNotification(
         'Question Description field cannot be empty'

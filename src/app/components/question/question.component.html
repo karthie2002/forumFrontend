@@ -49,8 +49,8 @@
           {{ description }}
         </div>
         <div
+          (click)="addCateg($event)"
           *ngIf="category == null"
-          (click)="addCateg()"
           class="flex flex-row self-end text-[#fff] gap-x-1.5 bg-[#ef4565] p-1 rounded-md"
         >
           <svg
@@ -77,3 +77,10 @@
     </ng-container>
   </div>
 </div>
+
+<ng-container *ngIf="isAddCateg == true">
+  <app-categoryeditor
+    [question]="question"
+    [username]="username"
+  ></app-categoryeditor>
+</ng-container>
