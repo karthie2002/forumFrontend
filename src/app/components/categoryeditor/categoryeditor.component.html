@@ -1,0 +1,42 @@
+<div
+  class="relative top-[-10px] right-[45px]"
+  (click)="$event.stopPropagation()"
+>
+  <div class="absolute right-0 z-10 drop-shadow-xl">
+    <div class="speech top drop-shadow-2xl">
+      <form
+        [formGroup]="addCategForm"
+        class="flex flex-row gap-2 items-center justify-center"
+      >
+        <input
+          class="rounded-md p-1 bg-[#fff] focus:outline-[#ef4565] text-black text-sm"
+          type="text"
+          formControlName="category"
+        />
+        <div>
+          <div class="text-white p-1" (click)="submitCateg($event)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 15 15"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                d="M4 7.5L7 10l4-5m-3.5 9.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <form *ngIf="isAddCateg == true" [formGroup]="addCategForm">
+            <input class="text-black" type="text" formControlName="category" />
+            <div class="bg-black text-white" (click)="submitCateg($event)">
+              Submit
+            </div>
+          </form> -->
