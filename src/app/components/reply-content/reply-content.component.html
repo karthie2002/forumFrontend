@@ -224,7 +224,7 @@
           </rect>
         </svg>
         <div *ngIf="!isSort">
-          <div *ngFor="let item of problemDetails[0].replyMain.reverse()">
+          <div *ngFor="let item of p2">
             <div class="flex flex-row items-center gap-2">
               <div
                 *ngIf="
@@ -273,7 +273,7 @@
           </div>
         </div>
         <div *ngIf="isSort">
-          <div *ngFor="let item of problemDetails[0].replyMain">
+          <div *ngFor="let item of p1">
             <div class="flex flex-row items-center gap-2">
               <div
                 *ngIf="

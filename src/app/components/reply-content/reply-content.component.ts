@@ -25,6 +25,8 @@ export class ReplyContentComponent {
   replyQ: replyQuestion = { username: '', question: '', content: '' };
   defaultUrl: string = '../../assets/images/user.png';
   problemDetails: GetAllProblemsAndReplies[] = [];
+  p1: any;
+  p2: any;
   profImg: number = 0;
   constructor(
     private route: ActivatedRoute,
@@ -78,7 +80,11 @@ export class ReplyContentComponent {
         .subscribe((value: GetAllProblemsAndReplies[]) => {
           this.problemDetails = value;
           this.loadTrue = 0;
-          console.log(this.problemDetails);
+          console.log(this.problemDetails[0]);
+          this.p1 = this.problemDetails[0].replyMain;
+          this.p2 = [...this.problemDetails[0].replyMain].reverse();
+          console.log(this.p2);
+          console.log(this.p1)
         });
     });
   }
