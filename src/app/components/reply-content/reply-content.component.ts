@@ -9,6 +9,7 @@ import {
   HttpServiceService,
   replyQuestion,
 } from 'src/app/service/http-service.service';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-reply-content',
@@ -83,5 +84,6 @@ export class ReplyContentComponent {
   }
   changeSort() {
     this.isSort = !this.isSort;
+    console.log(this.isSort);
   }
 }
