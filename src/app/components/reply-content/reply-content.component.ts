@@ -14,9 +14,9 @@ import {
   selector: 'app-reply-content',
   templateUrl: './reply-content.component.html',
   styleUrls: ['./reply-content.component.scss'],
-  
 })
 export class ReplyContentComponent {
+  isSort: boolean = false;
   isOpen: boolean = false;
   @Input() question: string = '';
   submitTrue: number = 1;
