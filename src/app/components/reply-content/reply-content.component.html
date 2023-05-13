@@ -11,13 +11,14 @@
     </div>
     <div class="flex justify-center items-center gap-2">
       <button
-        class="cursor-pointer flex  border-2 border-[#136afa] font-bold p-2 rounded-xl"
-        (click)="isSort = !isSort"
+        class="cursor-pointer flex mb-2 border-2 border-[#136afa] font-bold p-2 rounded-xl"
+        (click)="changeSort()"
       >
         Sort By: <span *ngIf="isSort" class="pl-1"> Newest first</span>
         <span *ngIf="!isSort" class="pl-1"> Oldest first</span>
       </button>
       <svg
+        class="mb-2"
         *ngIf="isSort"
         xmlns="http://www.w3.org/2000/svg"
         width="25"
@@ -30,6 +31,7 @@
         />
       </svg>
       <svg
+        class="mb-2"
         *ngIf="!isSort"
         xmlns="http://www.w3.org/2000/svg"
         width="25"

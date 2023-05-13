@@ -81,4 +81,7 @@ export class ReplyContentComponent {
         });
     });
   }
+  changeSort() {
+    this.isSort = !this.isSort;
+  }
 }
