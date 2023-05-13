@@ -83,8 +83,7 @@ export class ReplyContentComponent {
           console.log(this.problemDetails[0]);
           this.p1 = this.problemDetails[0].replyMain;
           this.p2 = [...this.problemDetails[0].replyMain].reverse();
-          console.log(this.p2);
-          console.log(this.p1)
+     
         });
     });
   }
