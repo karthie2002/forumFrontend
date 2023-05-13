@@ -54,6 +54,14 @@ export interface replyQuestion {
   question: string;
   content: string;
 }
+export interface upVoteContent {
+  username: string;
+  question: string;
+}
+
+export interface upVoteGet {
+  question: string;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -65,7 +73,10 @@ export class HttpServiceService {
   signUpUrl: string = 'https://forum-backend-azure.vercel.app/auth/createUser';
   textSearchUrl: string = 'https://forum-backend-azure.vercel.app/fulltext';
   replyUrl: string = 'https://forum-backend-azure.vercel.app/reply/createReply';
-
+  upVoteUrl: string =
+    'https://forum-backend-azure.vercel.app/problem/upvoteProblem';
+  upvGetUrl: string =
+    'https://forum-backend-azure.vercel.app/problem/getUpvoteCount';
   userDescUrl: string =
     'https://forum-backend-azure.vercel.app/user/updateDetails';
 
@@ -104,6 +115,17 @@ export class HttpServiceService {
   replyQues(replyQuesT: replyQuestion) {
     return this.http
       .post(this.replyUrl, replyQuesT, httpOptions)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+
+  upVoteFunction(upV: upVoteContent) {
+    return this.http
+      .post(this.upVoteUrl, upV, httpOptions)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+  upVoteGetFunc(upVGet: upVoteGet) {
+    return this.http
+      .post(this.upvGetUrl, upVGet, httpOptions)
       .pipe(retry(0), catchError(this.handleError));
   }
 
