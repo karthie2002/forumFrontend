@@ -1,0 +1,13 @@
+<div class="relative bottom-[145px]" (click)="$event.stopPropagation()">
+  <div class="absolute z-50 drop-shadow-xl left-[-24px] top-[-6px]">
+    <div class="speech top drop-shadow-2xl">
+      <div class="flex min-w-[180px] max-w-[200px] flex-col gap-2">
+        <div>Do you want to Logout?</div>
+        <div class="flex justify-between w-full">
+          <button class="px-3 py-1 rounded bg-[#344155]" (click)="onClick()">Cancel</button>
+          <button class="px-3 py-1 rounded bg-[#ef4565]" (click)="onLogoutClick()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
