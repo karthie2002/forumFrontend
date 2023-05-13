@@ -51,9 +51,14 @@ export class QuestionInfoComponent implements OnInit {
       question: question,
     };
     this.httpService.upVoteFunction(upvContent).subscribe((response) => {
-      // console.log(response);
+      this.upvoteCounter = response.count;
     });
-    // console.log(this.upvoteCounter);
+
+    const q: upVoteGet = { question: question };
+    this.httpService.upVoteGetFunc(q).subscribe((response) => {
+      this.upvoteCounter = response.count;
+      // console.log(this.upvoteCounter);
+    });
   }
   zoomImage() {
     this.isZoom = !this.isZoom;
@@ -64,10 +69,9 @@ export class QuestionInfoComponent implements OnInit {
       this.problemDetails[0].problem
     ) {
       const question = this.problemDetails[0].problem.question;
-      // console.log(question + 'dfdsfgf');
+
       const q: upVoteGet = { question: question };
       this.httpService.upVoteGetFunc(q).subscribe((response) => {
-        // console.log(response);
         this.upvoteCounter = response.count;
       });
     }
