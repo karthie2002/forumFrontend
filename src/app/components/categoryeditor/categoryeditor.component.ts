@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import {
   AddCategory,
@@ -13,6 +13,7 @@ import {
 export class CategoryeditorComponent {
   @Input() question: string = '';
   @Input() username: string = '';
+  @Output() newEvent = new EventEmitter<boolean>();
 
   constructor(private questionService: QuestionService) {}
   addCategForm = new FormGroup({
@@ -26,7 +27,7 @@ export class CategoryeditorComponent {
       JSON.stringify(this.addCategForm.value.category)
     );
     console.log('submit', categoryName, this.question);
-
+    this.newEvent.emit(true);
     this.questionService
       .AddQuestionToCategory(this.question, categoryName)
       .subscribe((value: AddCategory) => {
