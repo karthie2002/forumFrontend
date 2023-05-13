@@ -12,7 +12,15 @@
         'background-size': 'cover',
         'background-repeat': 'no-repeat'
       }"
-      class="flex flex-col border-solid rounded-2xl drop-shadow-lg p-6 m-6"
+      [ngClass]="[
+        'flex',
+        'flex-col',
+        'border-solid',
+        'rounded-2xl',
+        'drop-shadow-lg',
+        problemDetails[0].problem.problemImg ? 'p-6' : 'p-5',
+        problemDetails[0].problem.problemImg ? 'm-6' : ''
+      ]"
       *ngIf="problemDetails.length != 0"
     >
       <div

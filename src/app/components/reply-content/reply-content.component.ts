@@ -9,14 +9,15 @@ import {
   HttpServiceService,
   replyQuestion,
 } from 'src/app/service/http-service.service';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-reply-content',
   templateUrl: './reply-content.component.html',
   styleUrls: ['./reply-content.component.scss'],
-  
 })
 export class ReplyContentComponent {
+  isSort: boolean = false;
   isOpen: boolean = false;
   @Input() question: string = '';
   submitTrue: number = 1;
@@ -24,6 +25,8 @@ export class ReplyContentComponent {
   replyQ: replyQuestion = { username: '', question: '', content: '' };
   defaultUrl: string = '../../assets/images/user.png';
   problemDetails: GetAllProblemsAndReplies[] = [];
+  p1: any;
+  p2: any;
   profImg: number = 0;
   constructor(
     private route: ActivatedRoute,
@@ -77,8 +80,15 @@ export class ReplyContentComponent {
         .subscribe((value: GetAllProblemsAndReplies[]) => {
           this.problemDetails = value;
           this.loadTrue = 0;
-          console.log(this.problemDetails);
+          console.log(this.problemDetails[0]);
+          this.p1 = this.problemDetails[0].replyMain;
+          this.p2 = [...this.problemDetails[0].replyMain].reverse();
+     
         });
     });
+  }
+  changeSort() {
+    this.isSort = !this.isSort;
+    console.log(this.isSort);
   }
 }

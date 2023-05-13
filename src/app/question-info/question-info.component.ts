@@ -18,6 +18,7 @@ export class QuestionInfoComponent implements OnInit {
   ) {}
 
   userImg: string = '../../assets/images/user.png';
+
   isZoom: boolean = false;
   imgView: boolean = false;
   userProfile: string =
