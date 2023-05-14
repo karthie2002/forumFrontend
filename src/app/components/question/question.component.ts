@@ -41,8 +41,8 @@ export class QuestionComponent {
     }
   }
 
-  closeCateg(event:any) {
+  closeCateg(categoryValue: string) {
     this.isAddCateg = false;
-    this.category = event.categValue;
+    this.category = categoryValue;
   }
 }

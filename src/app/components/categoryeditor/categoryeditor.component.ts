@@ -20,14 +20,14 @@ export class CategoryeditorComponent {
     category: new FormControl(),
   });
 
-  submitCateg(event: any, categValue:string) {
+  submitCateg(event: any) {
     event.preventDefault();
     event.stopPropagation();
     const categoryName: string = JSON.parse(
       JSON.stringify(this.addCategForm.value.category)
     );
     console.log('submit', categoryName, this.question);
-    this.newEvent.emit(categValue);
+    this.newEvent.emit(categoryName);
     this.questionService
       .AddQuestionToCategory(this.question, categoryName)
       .subscribe((value: AddCategory) => {
