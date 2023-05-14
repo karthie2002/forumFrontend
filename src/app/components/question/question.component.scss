@@ -2,21 +2,21 @@ $breakpoint-sm-tab: 1280px;
 .question {
   flex: 2;
 }
-.mainDiv {
-  border-radius: 0.5rem;
-}
+// .mainDiv {
+//   border-radius: 0.5rem;
+// }
 
-.problemImage {
-}
-@media not all and (min-width: $breakpoint-sm-tab) {
-  .mainDiv {
-    border-radius: 0.5rem;
-  }
-  .question {
-  }
-  .problemImage {
-  }
-}
+// .problemImage {
+// }
+// @media not all and (min-width: $breakpoint-sm-tab) {
+//   .mainDiv {
+//     border-radius: 0.5rem;
+//   }
+//   .question {
+//   }
+//   .problemImage {
+//   }
+// }
 
 // $breakpoint-lap: 1600px;
 // $breakpoint-tablet: 1400px;
