@@ -74,27 +74,31 @@ export class ProfileComponent implements OnInit {
     this.recommendationControl.reset();
   }
   insertImg(event: any) {
-    const reader = new FileReader();
-    if (event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      reader.readAsDataURL(file);
-      if (
-        file.size / 1048576 <= 2 &&
-        (file.type.match('image/png*') ||
-          file.type.match('image/jpg*') ||
-          file.type.match('image/jpeg*'))
-      ) {
-        reader.onload = () => {
-          console.log(reader.result);
-          this.userProfile = reader.result as string;
-        };
-      } else {
-        if (file.size / 1048576 > 2) {
-          this.notifierService.showNotification('Image size cannot exceed 2MB');
+    if (this.isEdit) {
+      const reader = new FileReader();
+      if (event.target.files && event.target.files.length) {
+        const [file] = event.target.files;
+        reader.readAsDataURL(file);
+        if (
+          file.size / 1048576 <= 2 &&
+          (file.type.match('image/png*') ||
+            file.type.match('image/jpg*') ||
+            file.type.match('image/jpeg*'))
+        ) {
+          reader.onload = () => {
+            console.log(reader.result);
+            this.userProfile = reader.result as string;
+          };
         } else {
-          this.notifierService.showNotification(
-            'Image type should be JPEG/PNG'
-          );
+          if (file.size / 1048576 > 2) {
+            this.notifierService.showNotification(
+              'Image size cannot exceed 2MB'
+            );
+          } else {
+            this.notifierService.showNotification(
+              'Image type should be JPEG/PNG'
+            );
+          }
         }
       }
     }
@@ -105,6 +109,9 @@ export class ProfileComponent implements OnInit {
   }
   addRecommendation(event: Event) {
     event.preventDefault();
+    if (!this.isEdit) {
+      this.notifierService.showNotification('Click Edit before editing');
+    }
     if (event != null) {
       const value: string = this.recommendationControl.value || '';
       if (value.length > 0) {
@@ -117,6 +124,13 @@ export class ProfileComponent implements OnInit {
     event.preventDefault();
     if (index > -1) {
       this.technology.splice(index, 1);
+    }
+  }
+
+  editAlert(event: Event) {
+    event.preventDefault();
+    if (!this.isEdit) {
+      this.notifierService.showNotification('Click Edit before editing');
     }
   }
 
