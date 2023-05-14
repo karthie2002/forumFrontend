@@ -1,5 +1,5 @@
 <div
-  class="fixed w-24 border-[1px] h-full z-30 bg-white"
+  class="fixed w-24 h-full z-30 bg-white max-md:drop-shadow-md"
   [@slideInOut]="isShown ? 'out' : 'in'"
   [ngStyle]="!isShown ? { border: '0px' } : {}"
 >
@@ -82,6 +82,12 @@
           <path fill="none" d="M0 0h36v36H0z" />
         </svg>
       </button>
+      <ng-container *ngIf="clicked == true">
+        <app-tooltiplogout
+          (buttonClicked)="onClick()"
+          (onLogout)="onLogout()"
+        ></app-tooltiplogout>
+      </ng-container>
     </div>
   </div>
 </div>

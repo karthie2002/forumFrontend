@@ -44,7 +44,7 @@ export class LoginComponent {
     const smt = this.submitFormLogin.value;
     const name: string = smt.n as string;
     const password: string = smt.p as string;
-    const loginD: LogIn = { name: name, password: password };
+    const loginD: LogIn = { name: name.trim(), password: password.trim() };
     let jwtToken: string = '';
     const val = this.httpService
       .loginUserDetails(loginD)

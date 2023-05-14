@@ -1,11 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   GetAllProblemsAndReplies,
   MainPageService,
 } from '../service/main-page/main-page.service';
-
+import {
+  HttpServiceService,
+  upVoteContent,
+  upVoteGet,
+} from 'src/app/service/http-service.service';
 @Component({
   selector: 'app-question-info',
   templateUrl: './question-info.component.html',
@@ -14,7 +17,8 @@ import {
 export class QuestionInfoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private mainPageService: MainPageService
+    private mainPageService: MainPageService,
+    private httpService: HttpServiceService
   ) {}
 
   userImg: string = '../../assets/images/user.png';
@@ -32,13 +36,44 @@ export class QuestionInfoComponent implements OnInit {
         .subscribe((value: GetAllProblemsAndReplies[]) => {
           this.problemDetails = value;
           console.log(value[0].replyMain[0]);
+          this.getUpV();
         });
     });
   }
   onClickUpvote() {
-    this.upvoteCounter++;
+    const localUser = localStorage.getItem('userData');
+    const l = JSON.parse(localUser!);
+    const username = l.username;
+    const question = this.problemDetails[0].problem.question;
+
+    const upvContent: upVoteContent = {
+      username: username,
+      question: question,
+    };
+    this.httpService.upVoteFunction(upvContent).subscribe((response) => {
+      this.upvoteCounter = response.count;
+    });
+
+    const q: upVoteGet = { question: question };
+    this.httpService.upVoteGetFunc(q).subscribe((response) => {
+      this.upvoteCounter = response.count;
+      // console.log(this.upvoteCounter);
+    });
   }
   zoomImage() {
     this.isZoom = !this.isZoom;
+  }
+  getUpV() {
+    if (
+      this.problemDetails[0].problem.question &&
+      this.problemDetails[0].problem
+    ) {
+      const question = this.problemDetails[0].problem.question;
+
+      const q: upVoteGet = { question: question };
+      this.httpService.upVoteGetFunc(q).subscribe((response) => {
+        this.upvoteCounter = response.count;
+      });
+    }
   }
 }

@@ -225,7 +225,7 @@
         </svg>
         <div *ngIf="!isSort">
           <div *ngFor="let item of p2">
-            <div class="flex flex-row items-center gap-2">
+            <div class="flex flex-row items-center gap-2 pb-4">
               <div
                 *ngIf="
                   item.user.profileImg != '' && item.user.profileImg != null
@@ -274,7 +274,7 @@
         </div>
         <div *ngIf="isSort">
           <div *ngFor="let item of p1">
-            <div class="flex flex-row items-center gap-2">
+            <div class="flex flex-row items-center gap-2 pb-4">
               <div
                 *ngIf="
                   item.user.profileImg != '' && item.user.profileImg != null

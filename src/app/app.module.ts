@@ -28,6 +28,7 @@ import { DropDownProfileComponent } from './components/drop-down-profile/drop-do
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { CategoryeditorComponent } from './components/categoryeditor/categoryeditor.component';
+import { TooltiplogoutComponent } from './components/tooltiplogout/tooltiplogout.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CategoryeditorComponent } from './components/categoryeditor/categoryedi
     ReplyContentComponent,
     DropDownProfileComponent,
     CategoryeditorComponent,
+    TooltiplogoutComponent,
   ],
   imports: [
     BrowserModule,

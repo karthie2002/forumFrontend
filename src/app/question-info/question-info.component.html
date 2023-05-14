@@ -73,12 +73,23 @@
         <div class="text-xl mb-5">
           {{ problemDetails[0].problem.description }}
         </div>
-        <div class="flex flex-row gap-2">
+        <div class="flex flex-row gap-2 items-center">
           <button
             (click)="onClickUpvote()"
             class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] font-bold p-2 rounded-2xl"
           >
-            {{ upvoteCounter }} Upvote
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="20"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="currentColor"
+                d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"
+              />
+            </svg>
+            <span class="pl-1 pr-1">{{ upvoteCounter }}</span> Upvote
           </button>
           <button
             *ngIf="problemDetails[0].problem.problemImg"

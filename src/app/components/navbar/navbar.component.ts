@@ -39,6 +39,8 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router, private navbarService: NavbarService) {}
   @Input() userProfile: string = '../../../assets/images/user.png';
   @Input() isShown: boolean = true;
+
+  clicked: boolean = false;
   ngOnInit(): void {
     this.navbarService
       .getUserProfile()
@@ -50,6 +52,10 @@ export class NavbarComponent implements OnInit {
   }
 
   onClick() {
+    this.clicked = !this.clicked;
+  }
+
+  onLogout() {
     this.router.navigate(['/login-layout']);
     localStorage.removeItem('userData');
   }
