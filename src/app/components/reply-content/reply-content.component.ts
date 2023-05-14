@@ -7,9 +7,10 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import {
   HttpServiceService,
+  replyDelContent,
   replyQuestion,
 } from 'src/app/service/http-service.service';
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
+import { NotifierService } from 'src/app/service/notifier.service';
 
 @Component({
   selector: 'app-reply-content',
@@ -32,7 +33,8 @@ export class ReplyContentComponent {
     private route: ActivatedRoute,
     private mainPageService: MainPageService,
     private formBuilder: FormBuilder,
-    private httpService: HttpServiceService
+    private httpService: HttpServiceService,
+    private notifierService: NotifierService
   ) {}
   submitForm = this.formBuilder.group({
     ip: '',
@@ -42,7 +44,7 @@ export class ReplyContentComponent {
     event.preventDefault();
     let s: any = localStorage.getItem('userData');
     let a = JSON.parse(s);
-    console.log(a.username);
+    // console.log(a.username);
     const smt = this.submitForm.value;
 
     const c: string = smt.ip as string;
@@ -93,5 +95,27 @@ export class ReplyContentComponent {
   assignList() {
     this.p1 = this.problemDetails[0].replyMain;
     this.p2 = [...this.problemDetails[0].replyMain].reverse();
+  }
+  deleteReply(item: any) {
+    let s: any = localStorage.getItem('userData');
+    let a = JSON.parse(s);
+    const logUser: string = a.username;
+    // console.log(item.reply.replyId);
+    const delUsername: string = item.user.name;
+    const replyId: string = item.reply.replyId;
+    if (delUsername == logUser) {
+      const delDetails: replyDelContent = {
+        username: delUsername,
+        replyId: replyId,
+      };
+      this.httpService.replyDelFunc(delDetails).subscribe((response) => {
+        console.log(response);
+        this.assignList();
+      });
+    } else {
+      this.notifierService.showNotification(
+        'Cannot delete reply of other users'
+      );
+    }
   }
 }
