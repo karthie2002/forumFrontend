@@ -9,11 +9,12 @@
     />
   </div>
   <div
+    [ngStyle]="{
+      'border-radius': problemImg.trim().length == 0 ? '0.5rem' : ''
+    }"
     class="question flex flex-col bg-[#ffffff] px-5 py-5 gap-y-8 rounded-r-lg max-xl:rounded-b-lg max-sm:px-4 max-sm:items-start"
   >
-    <!-- [ngStyle]="{
-      'border-radius': problemImg.trim().length == 0 ? '0.5rem' : ''
-    }" -->
+    <!--  -->
     <div class="flex justify-between items-center w-full">
       <div
         class="flex justify-start items-center gap-x-6 gap-y-[10px] flex-wrap max-sm:gap-x-2"
@@ -82,6 +83,6 @@
   <app-categoryeditor
     [question]="question"
     [username]="username"
-    (newEvent)="closeCateg()"
+    (newEvent)="closeCateg($event)"
   ></app-categoryeditor>
 </ng-container>

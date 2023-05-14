@@ -46,24 +46,29 @@
               (ngSubmit)="submitForm($event)"
               [formGroup]="questionForm"
             >
-              <label class="py-2 font-semibold text-[#fffffe]">Question</label>
+              <label class="py-2 font-semibold text-[#fffffe] max-sm:col-span-5"
+                >Question</label
+              >
               <textarea
                 type="text"
                 formControlName="question"
-                class="col-span-4 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
+                class="col-span-4 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl max-sm:col-span-5"
               ></textarea>
 
-              <label class="py-2 font-semibold text-[#fffffe]"
+              <label class="py-2 font-semibold text-[#fffffe] max-sm:col-span-5"
                 >Description</label
               >
               <textarea
                 type="text"
                 formControlName="description"
-                class="col-span-4 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl"
+                class="col-span-4 w-full max-lg:mt-0 max-lg:p-1 rounded-lg mt-2 p-2 bg-[#f6f6f6] focus:outline-[#ef4565] mb-4 max-lg:mb-4 text-xl max-sm:col-span-5"
               ></textarea>
-              <label class="py-2 font-semibold text-[#fffffe]">Image</label>
+              <label
+                class="py-2 font-semibold text-[#fffffe] max-md:col-span-2 max-sm:col-span-5"
+                >Image</label
+              >
               <div
-                class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-md:items-start max-sm:items-center"
+                class="row-span-2 col-span-2 ml-2 flex items-center gap-6 max-md:flex-col max-sm:col-span-5 max-sm:items-center"
               >
                 <div class="grid w-40 h-40 relative image-sizer">
                   <input
@@ -119,7 +124,6 @@
         *ngFor="let item of questionList; let i = index"
         (click)="onClick(item, i)"
       >
-        <!--  -->
         <app-question
           [date]="item.problem.createdAt"
           [category]="item.category"

@@ -13,21 +13,21 @@ import {
 export class CategoryeditorComponent {
   @Input() question: string = '';
   @Input() username: string = '';
-  @Output() newEvent = new EventEmitter<boolean>();
+  @Output() newEvent = new EventEmitter<string>();
 
   constructor(private questionService: QuestionService) {}
   addCategForm = new FormGroup({
     category: new FormControl(),
   });
 
-  submitCateg(event: any) {
+  submitCateg(event: any, categValue:string) {
     event.preventDefault();
     event.stopPropagation();
     const categoryName: string = JSON.parse(
       JSON.stringify(this.addCategForm.value.category)
     );
     console.log('submit', categoryName, this.question);
-    this.newEvent.emit(true);
+    this.newEvent.emit(categValue);
     this.questionService
       .AddQuestionToCategory(this.question, categoryName)
       .subscribe((value: AddCategory) => {

@@ -40,7 +40,9 @@ export class QuestionComponent {
       );
     }
   }
-  closeCateg() {
+
+  closeCateg(event:any) {
     this.isAddCateg = false;
+    this.category = event.categValue;
   }
 }

@@ -9,12 +9,13 @@
         class="flex flex-row gap-2 items-center justify-center"
       >
         <input
+          #category
           class="rounded-md p-1 bg-[#fff] focus:outline-[#ef4565] text-black text-sm"
           type="text"
           formControlName="category"
         />
         <div>
-          <div class="text-white p-1" (click)="submitCateg($event)">
+          <div class="text-white p-1" (click)="submitCateg($event, category.value)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
