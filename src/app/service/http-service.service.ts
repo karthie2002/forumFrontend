@@ -63,6 +63,11 @@ export interface upVoteGet {
   question: string;
 }
 
+export interface replyDelContent {
+  username: string;
+  replyId: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -79,6 +84,8 @@ export class HttpServiceService {
     'https://forum-backend-azure.vercel.app/problem/getUpvoteCount';
   userDescUrl: string =
     'https://forum-backend-azure.vercel.app/user/updateDetails';
+  replyDelUrl: string =
+    'https://forum-backend-azure.vercel.app/reply/deleteReply';
 
   loginUserDetails(login: LogIn): Observable<Responses> {
     return this.http
@@ -126,6 +133,11 @@ export class HttpServiceService {
   upVoteGetFunc(upVGet: upVoteGet) {
     return this.http
       .post(this.upvGetUrl, upVGet, httpOptions)
+      .pipe(retry(0), catchError(this.handleError));
+  }
+  replyDelFunc(repDel: replyDelContent) {
+    return this.http
+      .post(this.replyDelUrl, repDel, httpOptions)
       .pipe(retry(0), catchError(this.handleError));
   }
 
