@@ -44,7 +44,11 @@ export class SignupComponent {
     const name: string = smt.n as string;
     const password: string = smt.p as string;
     const email: string = smt.e as string;
-    const signUpD: SignUp = { name: name, password: password, email: email };
+    const signUpD: SignUp = {
+      name: name.trim(),
+      password: password.trim(),
+      email: email.trim(),
+    };
     let jwtToken: string = '';
     const val = this.httpService
       .signUpDetails(signUpD)
