@@ -59,6 +59,7 @@ export class ReplyContentComponent {
             .subscribe((value: GetAllProblemsAndReplies[]) => {
               this.problemDetails = value;
               this.submitTrue = 1;
+              this.assignList();
             });
         });
       });
@@ -81,14 +82,16 @@ export class ReplyContentComponent {
           this.problemDetails = value;
           this.loadTrue = 0;
           console.log(this.problemDetails[0]);
-          this.p1 = this.problemDetails[0].replyMain;
-          this.p2 = [...this.problemDetails[0].replyMain].reverse();
-     
+          this.assignList();
         });
     });
   }
   changeSort() {
     this.isSort = !this.isSort;
-    console.log(this.isSort);
+    // console.log(this.isSort);
+  }
+  assignList() {
+    this.p1 = this.problemDetails[0].replyMain;
+    this.p2 = [...this.problemDetails[0].replyMain].reverse();
   }
 }
