@@ -7,11 +7,9 @@ import {
 } from '../service/main-page/main-page.service';
 import {
   trigger,
-  state,
   style,
   animate,
   transition,
-  // ...
 } from '@angular/animations';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NotifierService } from '../service/notifier.service';
