@@ -42,7 +42,7 @@
               *ngIf="isEdit"
               (click)="onCancel($event)"
               (submit)="$event.preventDefault()"
-              class="max-sm:p-2 xl:w-32 lg:w-28 md:w-24 sm:w-20 w-auto pt-3 pb-3 bg-[#F6F6F6] outline outline-2 outline-[#344155] rounded-lg text-[#344155] cursor-pointer font-semibold max-sm:text-sm text-1xl"
+              class="max-sm:p-2 xl:w-32 lg:w-28 md:w-24 sm:w-20 w-auto pt-3 pb-3 bg-[#F6F6F6] outline outline-2 outline-[#094067] rounded-lg text-[#094067] cursor-pointer font-semibold max-sm:text-sm text-1xl"
             >
               CANCEL
             </button>
@@ -50,7 +50,7 @@
               *ngIf="!isEdit"
               (click)="onEdit($event)"
               (submit)="$event.preventDefault()"
-              class="max-sm:p-2 xl:w-32 lg:w-28 md:w-24 sm:w-20 w-auto pt-3 pb-3 bg-[#F6F6F6] outline outline-2 outline-[#344155] rounded-lg text-[#344155] cursor-pointer font-semibold max-sm:text-sm text-1xl"
+              class="max-sm:p-2 xl:w-32 lg:w-28 md:w-24 sm:w-20 w-auto pt-3 pb-3 bg-[#F6F6F6] outline outline-2 outline-[#094067] rounded-lg text-[#094067] cursor-pointer font-semibold max-sm:text-sm text-1xl"
             >
               EDIT
             </button>
@@ -59,7 +59,7 @@
               *ngIf="isEdit"
               type="submit"
               value="SAVE"
-              class="max-sm:p-2 xl:w-32 lg:w-28 md:w-24 sm:w-20 w-auto pt-3 pb-3 bg-[#344155] rounded-lg text-[#F6F6F6] font-semibold max-sm:text-sm text-1xl cursor-pointer"
+              class="max-sm:p-2 xl:w-32 lg:w-28 md:w-24 sm:w-20 w-auto pt-3 pb-3 bg-[#094067] rounded-lg text-[#F6F6F6] font-semibold max-sm:text-sm text-1xl cursor-pointer"
             />
           </div>
         </div>
@@ -71,18 +71,18 @@
         <input
           formControlName="name"
           type="text"
-          class="border-2 outline-slate-300 focus:outline-[#344155] m-2 p-1 pl-3 mr-8 max-sm:mr-2 rounded-lg"
+          class="border-2 outline-slate-300 focus:outline-[#094067] m-2 p-1 pl-3 mr-8 max-sm:mr-2 rounded-lg"
         />
         <label for="email" class="break-all">Email</label>
         <input
           formControlName="email"
           type="email"
-          class="border-2 outline-slate-300 focus:outline-[#344155] m-2 p-1 pl-3 mr-8 max-sm:mr-2 rounded-lg"
+          class="border-2 outline-slate-300 focus:outline-[#094067] m-2 p-1 pl-3 mr-8 max-sm:mr-2 rounded-lg"
         />
         <label for="userDesc">User Description</label>
         <textarea
           formControlName="desc"
-          class="border-2 outline-slate-300 focus:outline-[#344155AA] m-2 p-3 mr-8 max-sm:mr-2 rounded-lg"
+          class="border-2 outline-slate-300 focus:outline-[#094067AA] m-2 p-3 mr-8 max-sm:mr-2 rounded-lg"
           rows="5"
           placeholder="Type something..."
         ></textarea>
@@ -167,7 +167,7 @@
               (keydown.enter)="addRecommendation($event)"
               [formControl]="recommendationControl"
               placeholder="Type something..."
-              class="flex-1 border-2 outline-slate-300 focus:outline-[#344155AA] m-2 p-2 pl-3 rounded-lg"
+              class="flex-1 border-2 outline-slate-300 focus:outline-[#094067AA] m-2 p-2 pl-3 rounded-lg"
             />
             <div
               (click)="addRecommendation($event)"
@@ -178,7 +178,7 @@
           </div>
           <div class="flex gap-2 flex-wrap m-2">
             <button
-              class="bg-[#344155] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer"
+              class="bg-[#094067] px-5 py-2 rounded-3xl text-[#F6F6F6] cursor-pointer"
               *ngFor="let item of technology; let i = index"
               [attr.data-index]="i"
               (click)="clearRecommendation(i, $event)"

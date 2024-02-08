@@ -24,7 +24,7 @@
       *ngIf="problemDetails.length != 0"
     >
       <div
-        class="border-2 border-[#136afa] bg-white backdrop-filter backdrop-blur-md bg-opacity-50 rounded-2xl p-5"
+        class="border-2 border-[#094067] bg-white backdrop-filter backdrop-blur-md bg-opacity-50 rounded-2xl p-5"
       >
         <div class="flex flex-row items-center">
           <div
@@ -59,7 +59,7 @@
               </div>
             </div>
             <div
-              class="max-sm:text-sm text-2xl border-2 font-semibold p-2 rounded-2xl bg-[#136afa] text-[#f6f6f6]"
+              class="max-sm:text-sm text-2xl border-2 font-semibold p-2 rounded-2xl bg-[#094067] text-[#f6f6f6]"
               *ngIf="problemDetails[0].category != null"
             >
               #{{ problemDetails[0].category }}
@@ -76,7 +76,7 @@
         <div class="flex flex-row gap-2 items-center">
           <button
             (click)="onClickUpvote()"
-            class="cursor-pointer mt-2 flex items-center justify-center bg-[#136afa] text-[#ffffff] font-bold p-2 rounded-2xl"
+            class="cursor-pointer mt-2 flex items-center justify-center bg-[#094067] text-[#ffffff] font-bold p-2 rounded-2xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@
           <button
             *ngIf="problemDetails[0].problem.problemImg"
             (click)="zoomImage()"
-            class="cursor-pointer mt-2 flex items-center justify-center border-[#136afa] border-2 font-bold p-2 rounded-2xl"
+            class="cursor-pointer mt-2 flex items-center justify-center border-[#094067] text-[#094067] border-2 font-bold p-2 rounded-2xl"
           >
             View Image
           </button>

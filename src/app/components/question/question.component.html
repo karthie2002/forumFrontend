@@ -38,17 +38,20 @@
       </div>
     </div>
     <div
-      class="flex flex-row gap-x-5 justify-start items-center max-sm:flex-col"
+      class="flex flex-row h-full gap-x-5 justify-start items-center max-sm:flex-col"
     >
       <div
-        class="flex flex-col flex-1 gap-y-8 max-lg:w-5/6 max-sm:w-full max-sm:items-start"
+        class="flex flex-col h-full flex-1 justify-between max-lg:w-5/6 max-sm:w-full max-sm:items-start"
       >
-        <div class="text-xl text-[#094067] text-justify max-md:text-base">
-          {{ question }}
+        <div class="flex flex-col gap-y-6">
+          <div class="text-xl text-[#094067] text-justify max-md:text-base">
+            {{ question }}
+          </div>
+          <div class="text-base text-[#ef4565] max-md:text-sm text-justify">
+            {{ description }}
+          </div>
         </div>
-        <div class="text-base text-[#ef4565] max-md:text-sm text-justify">
-          {{ description }}
-        </div>
+
         <div
           (click)="addCateg($event)"
           *ngIf="category == null"
